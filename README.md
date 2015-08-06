@@ -21,3 +21,17 @@ Then commit your changes, push them up and tag the new release:
     $ git push origin master --tags
 
 You're done!
+
+## Licence
+
+GPL - 2015
+
+<p align="center">
+  <a href="http://handcrafteddigital.london" target="_blank">
+    <img width="270" height="270" src="https://raw.githubusercontent.com/handcraftedLDN/brewser/master/handcrafted-digital-london-logo.png" alt="Handcrafted Digital London - Fine, hand made design and development from London"/>
+  </a>
+</p>
+<p align="center">
+    The project was brought to you by <br/>
+    <a href="http://handcrafteddigital.london" target="_blank">Handcrafted Digital</a>
+</p>
