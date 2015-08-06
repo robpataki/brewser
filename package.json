@@ -29,8 +29,10 @@
     "url": "https://github.com/handcraftedLDN/brewser/issues"
   },
   "homepage": "https://github.com/handcraftedLDN/brewser#readme",
-  
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-util": "^3.0.6",
+    "jshint-stylish": "^2.0.1"
   }
 }

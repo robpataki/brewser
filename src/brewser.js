@@ -1,4 +1,3 @@
-/*global define:false, require:false, exports:false, module:false, BREWSER:false */
 (function(global) {
 
     'use strict';
@@ -12,10 +11,10 @@
 
             var _this = this;
 
-            if(this._exists) {
+            if(_this._exists) {
                 return;
             }
-            this._exists = true;
+            _this._exists = true;
 
             console.log(' %c BREWSER is ready - use window.BREWSER or simply BREWSER ', 'background: #222; color: #bada55; line-height: 21px; font-size: 12px; padding: 4px 0; margin-bottom: 14px;');
             
@@ -172,7 +171,6 @@
                             window.getComputedStyle(document.body).getPropertyValue('-ms-transform') || 
                             window.getComputedStyle(document.body).getPropertyValue('transform')
                         ));
-                return true;
             };
 
 //------------- Browser `labeling` specific methods derived from feature detection
@@ -188,7 +186,7 @@
                     if(key === 'msie') {
                         var ua = _this.UA;
                         var re  = new RegExp('msie ([0-9]{1,}[\.0-9]{0,})');
-                        if (re.exec(ua) != null) {
+                        if (re.exec(ua) !== null) {
                             if(type !== 'short') {
                                 chunk = RegExp.$1;
                             } else {
@@ -233,16 +231,16 @@
                 var result = 'N/A';
                 
                 if(this.isBrowserChrome()) {
-                    result =    _this.getBrowserVersion('chrome', 'short') < _this.MINIMUM_DESKTOP_BROWSER_VERSIONS['chrome'];
+                    result =    _this.getBrowserVersion('chrome', 'short') < _this.MINIMUM_DESKTOP_BROWSER_VERSIONS.chrome;
                 } else if(_this.isBrowserSafari()) {
-                    result =    _this.getBrowserVersion('version', 'short') < _this.MINIMUM_DESKTOP_BROWSER_VERSIONS['safari'];
+                    result =    _this.getBrowserVersion('version', 'short') < _this.MINIMUM_DESKTOP_BROWSER_VERSIONS.safari;
                 } else if(_this.isBrowserOpera()) {
-                    result =    _this.getBrowserVersion('opr', 'short') < _this.MINIMUM_DESKTOP_BROWSER_VERSIONS['opera'] ||
-                                _this.getBrowserVersion('opera', 'short') <= _this.MINIMUM_DESKTOP_BROWSER_VERSIONS['opera'];
+                    result =    _this.getBrowserVersion('opr', 'short') < _this.MINIMUM_DESKTOP_BROWSER_VERSIONS.opera ||
+                                _this.getBrowserVersion('opera', 'short') <= _this.MINIMUM_DESKTOP_BROWSER_VERSIONS.opera;
                 } else if(_this.isBrowserFirefox()) {
-                    result =    _this.getBrowserVersion('firefox', 'short') < _this.MINIMUM_DESKTOP_BROWSER_VERSIONS['firefox'];
+                    result =    _this.getBrowserVersion('firefox', 'short') < _this.MINIMUM_DESKTOP_BROWSER_VERSIONS.firefox;
                 } else if(_this.isBrowserIE() && !_this.isBrowserOldIE()) {
-                    result =    _this.getBrowserVersion('msie', 'short') < _this.MINIMUM_DESKTOP_BROWSER_VERSIONS['ie'];
+                    result =    _this.getBrowserVersion('msie', 'short') < _this.MINIMUM_DESKTOP_BROWSER_VERSIONS.ie;
                 } else {
 
                     //Any browser which isn't checked against is automatically going into the fallback category!
@@ -312,28 +310,26 @@
                         _this.isBrowserSafari() ||
                         _this.isBrowserIE() ||
                         (_this.isDeviceTablet() && _this.isBrowserMobileIE()) ||
-                        _this.isBrowserStockAndroid()
+                        _this.isBrowserStockAndroid();
             };
 
             this.isDevicePhone = function isDevicePhone() {
                 return  window.matchMedia &&
                         _this.supportsTouch() && 
                         window.matchMedia('(max-device-width: 667px)').matches &&
-                        screen.width <= 667
-                        ? true : false;
+                        screen.width <= 667 ? true : false;
             };
 
             this.isDeviceTablet = function isDeviceTablet() {
                 return  window.matchMedia &&
                         _this.supportsTouch() && 
                         window.matchMedia('(min-device-width: 667px)').matches &&
-                        screen.width >= 667
-                        ? true : false;
+                        screen.width >= 667 ? true : false;
             };
 
             this.isDeviceDesktop = function isDeviceDesktop() {
                 return !!!(_this.isDevicePhone() || _this.isDeviceTablet());
-            }
+            };
 
             this.isBrowserFacebook = function isBrowserFacebook() {
                 return (/(fbios)/g.test(_this.UA));
@@ -393,7 +389,7 @@
             };
 
             this.isForcedToLandscape = function isForcedToLandscape() {
-                return !!(document.body.className.indexOf('is-forced-landscape') > -1);
+                return document.body.className.indexOf('is-forced-landscape') > -1;
             };
             
             this.initLandscapeForcing = function initLandscapeForcing() {
