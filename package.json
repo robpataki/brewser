@@ -1,8 +1,8 @@
 {
-  "name": "brewser.js",
+  "name": "brewser",
   "version": "0.0.1",
   "description": "Device and browser detection",
-  "main": "index.js",
+  "main": "dist/brewser.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,13 +30,13 @@
   },
   "homepage": "https://github.com/handcraftedLDN/brewser#readme",
   "devDependencies": {
+    "bower": "^1.4.1",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.6",
     "jshint-stylish": "^2.0.1"
   }
 }
