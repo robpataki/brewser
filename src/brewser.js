@@ -18,7 +18,7 @@
 
             console.log(' %c BREWSER is ready - use window.BREWSER or simply BREWSER ', 'background: #222; color: #bada55; line-height: 21px; font-size: 12px; padding: 4px 0; margin-bottom: 14px;');
             
-            this.VERSION = '0.0.1';
+            this.VERSION = '{{VERSION}}';
             this.UA = window.navigator.userAgent.toLowerCase();
 
             this.MINIMUM_DESKTOP_BROWSER_VERSIONS = {
