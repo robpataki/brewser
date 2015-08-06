@@ -22,10 +22,15 @@
     ],
     "license": "GPL",
     "ignore": [
-        "**/.*",
         "node_modules",
         "bower_components",
-        "test",
-        "tests"
+        "src",
+        "version.json",
+        "README.md",
+        "package.json",
+        "gulpfile.js",
+        "*.sublime-project",
+        "bower.json",
+        ".gitignore"
     ]
 }
