@@ -3,7 +3,6 @@ var gulp        = require('gulp'),
     del         = require('del'),
     jshint      = require('gulp-jshint'),
     uglify      = require('gulp-uglify'),
-    util        = require('gulp-util'),
     rename      = require('gulp-rename'),
     replace     = require('gulp-replace'),
     config      = require('./package.json');
