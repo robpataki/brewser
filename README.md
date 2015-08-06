@@ -1,6 +1,12 @@
 # brewser.js
 Device and browser capability detection library
 
+## Demo page
+
+[http://handcraftedldn.github.io/brewser-demo](http://handcraftedldn.github.io/brewser-demo)
+
+[http://bit.ly/brewser-demo](http://bit.ly/brewser-demo)
+
 ## Release bower package
 
 Please note, that the version number in 'version.json' overrides the version numbers both in 'package.json' and 'bower.json'. Make sure you bump up the version number in 'version.json' before release!
