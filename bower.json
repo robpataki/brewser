@@ -29,8 +29,8 @@
         "README.md",
         "package.json",
         "gulpfile.js",
-        "*.sublime-project",
-        "bower.json",
+        "brewser.sublime-project",
+        "brewser.sublime-workspace",
         ".gitignore"
     ]
 }
