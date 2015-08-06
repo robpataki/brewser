@@ -1,0 +1,36 @@
+{
+  "name": "brewser.js",
+  "version": "0.0.1",
+  "description": "Device and browser detection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/handcraftedLDN/brewser.git"
+  },
+  "keywords": [
+    "javascript",
+    "browser",
+    "device",
+    "useragent",
+    "mobile",
+    "tablet",
+    "desktop",
+    "capabilities",
+    "screen",
+    "utility",
+    "modernizr"
+  ],
+  "author": "Robert Pataki",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/handcraftedLDN/brewser/issues"
+  },
+  "homepage": "https://github.com/handcraftedLDN/brewser#readme",
+  
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
