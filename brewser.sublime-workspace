@@ -519,14 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 741,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -598,14 +590,26 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/rob/Work/handcrafteddigital/brewser"
+		"/Users/rob/Work/handcrafteddigital/brewser",
+		"/Users/rob/Work/handcrafteddigital/brewser/dist",
+		"/Users/rob/Work/handcrafteddigital/brewser/src"
 	],
 	"file_history":
 	[
-		"/Users/rob/Work/handcrafteddigital/brewser/.gitignore",
-		"/Users/rob/Work/handcrafteddigital/brewser/package.json",
-		"/Users/rob/Work/handcrafteddigital/brewser/demo/style/demo.css",
 		"/Users/rob/Work/handcrafteddigital/brewser/src/brewser.js",
+		"/Users/rob/Work/handcrafteddigital/brewser/dist/brewser.min.js",
+		"/Users/rob/Work/handcrafteddigital/brewser/version.json",
+		"/Users/rob/Work/handcrafteddigital/brewser/README.md",
+		"/Users/rob/Work/handcrafteddigital/brewser/.git/COMMIT_EDITMSG",
+		"/Users/rob/Work/handcrafteddigital/brewser/bower.json",
+		"/Users/rob/Work/handcrafteddigital/brewser/.gitignore",
+		"/Users/rob/Work/handcrafteddigital/brewser/gulpfile.js",
+		"/Users/rob/Work/handcrafteddigital/brewser/package.json",
+		"/Users/rob/Work/handcrafteddigital/brewser/dist/json/package2.json",
+		"/Users/rob/Work/handcrafteddigital/brewser/package2.json",
+		"/Users/rob/Work/handcrafteddigital/brewser/brewser.sublime-project",
+		"/Users/rob/Work/handcrafteddigital/brewser/packages.json",
+		"/Users/rob/Work/handcrafteddigital/brewser/demo/style/demo.css",
 		"/Users/rob/Work/handcrafteddigital/brewser/demo/script/demo.js",
 		"/Users/rob/Work/handcrafteddigital/brewser/demo/index.html",
 		"/Users/rob/Work/handcrafteddigital/brewser/demo/style/normalize.css",
@@ -719,17 +723,7 @@
 		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/Gruntfile.js",
 		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/public/brewser.html",
 		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/scripts/overlays/buy-overlay.js",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/scripts/overlays/bio/base-bio-overlay.js",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/scripts/core/singie.js",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/scripts/main.js",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/scripts/core/de-vice.js",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/scripts/interaction/scene4-interaction.js",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/scripts/interaction/scene5-interaction.js",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/vendor/swiftmailer/swiftmailer/lib/classes/Swift/CharacterReaderFactory/SimpleCharacterReaderFactory.php",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/templates/contact.hbs",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/templates/buy.hbs",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/templates/sample.hbs",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/styles/_hamburger.scss"
+		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/scripts/overlays/bio/base-bio-overlay.js"
 	],
 	"find":
 	{
@@ -875,6 +869,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"util.",
+			"clean:dist",
+			"versionConfig",
+			"config",
+			"gulp-util",
+			"default",
+			"'chrome",
 			"MINIMUM_DESKTOP_BROWSER_VERSIONS",
 			"this",
 			"supportsT",
@@ -995,14 +996,7 @@
 			"social",
 			"margin-bottom",
 			"18px",
-			"exit-links",
-			".divide",
-			"exit-content",
-			"strips",
-			"height:",
-			"not(.social-buttons-menu)",
-			"high",
-			"higlligh"
+			"exit-links"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1044,39 +1038,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 741,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								741,
-								741
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1128,6 +1091,30 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"version",
+				"version.json"
+			],
+			[
+				"bower",
+				"bower.json"
+			],
+			[
+				"readme",
+				"README.md"
+			],
+			[
+				"gitignore",
+				".gitignore"
+			],
+			[
+				"gitig",
+				".gitignore"
+			],
+			[
+				"package",
+				"package.json"
+			],
 			[
 				"copy.",
 				"utilities/copy/copy.csv"
@@ -1465,10 +1452,6 @@
 				"docroot/app/assets/scripts/interaction/scene1-interaction.js"
 			],
 			[
-				"gitignore",
-				".gitignore"
-			],
-			[
 				"texure",
 				"docroot/app/assets/data/texture-atlas-mobile.json"
 			],
@@ -1619,26 +1602,6 @@
 			[
 				"sapp.js",
 				"docroot/app/assets/scripts/app.js"
-			],
-			[
-				"scene1.",
-				"docroot/app/assets/scripts/scenes/scene1.js"
-			],
-			[
-				"pixic",
-				"docroot/app/assets/scripts/core/pixi-controller.js"
-			],
-			[
-				"module",
-				"docroot/app/assets/styles/_modules.scss"
-			],
-			[
-				"history.js",
-				"docroot/app/assets/scripts/core/history-controller.js"
-			],
-			[
-				"texure-atlas",
-				"docroot/app/assets/data/texture-atlas.json"
 			]
 		],
 		"width": 0.0
