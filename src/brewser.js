@@ -387,7 +387,7 @@
                 // objects throws an error in some browsers
                 var result;
                 if(typeof _this.cachedWebAudioResult === 'undefined') {
-                    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                    window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
                     if (typeof window.AudioContext !== 'undefined') {
                         var context = new AudioContext();
                         result = !!context && typeof context.createGain === 'function';

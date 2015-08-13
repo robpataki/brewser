@@ -10,7 +10,7 @@
         _init: function() {
 
             // Version bumped by Gulp, don't touch
-            this.VERSION = '0.1.0';
+            this.VERSION = '0.1.1';
 
             var _this = this;
 
@@ -387,7 +387,7 @@
                 // objects throws an error in some browsers
                 var result;
                 if(typeof _this.cachedWebAudioResult === 'undefined') {
-                    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                    window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
                     if (typeof window.AudioContext !== 'undefined') {
                         var context = new AudioContext();
                         result = !!context && typeof context.createGain === 'function';
