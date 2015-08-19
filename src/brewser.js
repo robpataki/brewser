@@ -87,7 +87,8 @@
                 mobile: _this.NOT_AVAILABLE,
                 tablet: _this.NOT_AVAILABLE,
                 desktop: _this.NOT_AVAILABLE,
-                touch: _this.NOT_AVAILABLE
+                touch: _this.NOT_AVAILABLE,
+                ios: _this.NOT_AVAILABLE
             };
 
             _this.has = {                
@@ -149,6 +150,8 @@
                 } else {
                     _this.device.type = _this.DEVICES.desktop;
                 }
+
+                _this.device.ios = _isOSiOS();
             }
 
 
@@ -376,9 +379,9 @@
                 _this.has.video = !!videoEl && typeof videoEl.canPlayType !== 'undefined';
 
                 if(_this.has.video) {
-                    _this.has.videoFormats.mp4 = videoEl.canPlayType('video/mp4');
-                    _this.has.videoFormats.webm = videoEl.canPlayType('video/webm');
-                    _this.has.videoFormats.ogg = videoEl.canPlayType('video/ogg');
+                    _this.has.videoFormats.mp4 = videoEl.canPlayType('video/mp4') !== "" ? true : false;
+                    _this.has.videoFormats.webm = videoEl.canPlayType('video/webm') !== "" ? true : false;
+                    _this.has.videoFormats.ogg = videoEl.canPlayType('video/ogg') !== "" ? true : false;
                 }
             }
 

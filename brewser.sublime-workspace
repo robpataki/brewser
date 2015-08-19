@@ -596,15 +596,17 @@
 	],
 	"file_history":
 	[
+		"/Users/rob/Work/handcrafteddigital/brewser/dist/brewser.js",
 		"/Users/rob/Work/handcrafteddigital/brewser/src/brewser.js",
-		"/Users/rob/Work/handcrafteddigital/brewser/dist/brewser.min.js",
+		"/Users/rob/Work/handcrafteddigital/brewser/package.json",
 		"/Users/rob/Work/handcrafteddigital/brewser/version.json",
 		"/Users/rob/Work/handcrafteddigital/brewser/README.md",
+		"/Users/rob/Work/handcrafteddigital/brewser-demo/.git/COMMIT_EDITMSG",
+		"/Users/rob/Work/handcrafteddigital/brewser/dist/brewser.min.js",
 		"/Users/rob/Work/handcrafteddigital/brewser/.git/COMMIT_EDITMSG",
 		"/Users/rob/Work/handcrafteddigital/brewser/bower.json",
 		"/Users/rob/Work/handcrafteddigital/brewser/.gitignore",
 		"/Users/rob/Work/handcrafteddigital/brewser/gulpfile.js",
-		"/Users/rob/Work/handcrafteddigital/brewser/package.json",
 		"/Users/rob/Work/handcrafteddigital/brewser/dist/json/package2.json",
 		"/Users/rob/Work/handcrafteddigital/brewser/package2.json",
 		"/Users/rob/Work/handcrafteddigital/brewser/brewser.sublime-project",
@@ -721,9 +723,7 @@
 		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/vendor/laravel/framework/src/Illuminate/Remote/GatewayInterface.php",
 		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/vendor/maximebf/debugbar/src/DebugBar/Resources/vendor/font-awesome/fonts/fontawesome-webfont.svg",
 		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/Gruntfile.js",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/public/brewser.html",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/scripts/overlays/buy-overlay.js",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/scripts/overlays/bio/base-bio-overlay.js"
+		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/public/brewser.html"
 	],
 	"find":
 	{
@@ -869,6 +869,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"};",
 			"util.",
 			"clean:dist",
 			"versionConfig",
@@ -995,8 +996,7 @@
 			"PRELOAD_SCENE_ID",
 			"social",
 			"margin-bottom",
-			"18px",
-			"exit-links"
+			"18px"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1092,16 +1092,16 @@
 		"selected_items":
 		[
 			[
+				"readme",
+				"README.md"
+			],
+			[
 				"version",
 				"version.json"
 			],
 			[
 				"bower",
 				"bower.json"
-			],
-			[
-				"readme",
-				"README.md"
 			],
 			[
 				"gitignore",
