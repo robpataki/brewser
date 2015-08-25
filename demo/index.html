@@ -16,7 +16,7 @@
             margin: 0;
             width: 100%;
             height: 100%;
-            background: #EFEFEF;
+            background: #FbFbFb;
             color: #222;
             font-family: "Helvetica Medium", Arial, Verdana, sans;
             font-weight: 300;
@@ -44,11 +44,17 @@
 
         a {
             text-decoration: none;
-            color: #DD2234;
+            color: #C41617;
         }
 
         .highlight {
-            color: #DD2234;   
+            color: #C41617;
+        }
+        .lowlight {
+            color: #20717d;
+        }
+        .strong {
+            font-weight: 700;
         }
 
 
@@ -87,7 +93,7 @@
             margin: 0 auto;
             min-height: 30px;
             vertical-align: middle;
-            border-bottom: 1px solid #EFEFEF;
+            border-bottom: 1px solid #FBFBFB;
         }
 
         .table tr:last-child {
@@ -96,11 +102,11 @@
 
         .table th:nth-child(1n+1),
         .table tr:nth-child(1n+1) {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.05);
         }
         .table th:nth-child(2n+2),
         .table tr:nth-child(2n+2) {
-            background-color: rgba(0, 0, 0, 0.05);
+            background-color: rgba(0, 0, 0, 0.02);
         }
 
         .table td:nth-child(2n+2) {
@@ -118,7 +124,8 @@
 
         h3 {
             font-size: 1.2em;
-            margin: 0 0 15px 0;
+            margin: 42px 0 15px 0;
+            color: #C41617;
         }
         .message {
             position: relative;
@@ -128,14 +135,14 @@
             min-height: 30px;
             vertical-align: middle;
             font-size: 1em;
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.05);
         }
         .message_copy {
             padding: 20px;
             line-height: 140%;
         }
 
-        .smallprint {
+        .notes {
             margin-top: 84px;
         }
 
@@ -178,10 +185,10 @@
 
             <div id="intro" class="intro">
                 <p>
-                    <b><a href="https://github.com/handcraftedLDN/brewser" target="_blank">brewser.js</a></b> is a simple open source device and browser detection library. This page demonstrates how its API gives you access to fairly accurate<a href="#smallprint">*</a> device info and browser capabilities.
+                    <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">brewser.js</a> is a simple open source device and browser detection library. This page demonstrates how the API<a href="#api-notes">*</a> gives you access to fairly accurate<a href="#note-on-accuracy">**</a> device info and browser capabilities.
                 </p>
                 <p>
-                    Let's see what <b><a href="https://github.com/handcraftedLDN/brewser" target="_blank">brewser.js</a></b> found for you:
+                    Let's see what <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">brewser.js</a> has found for you:
                 </p>
             </div>
 
@@ -211,6 +218,11 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <div id="userAgent">
+                <h3>BREWSER.UA</h3>
+                <span class="message"></span>
             </div>
 
             <div id="os">
@@ -381,14 +393,36 @@
                 </table>
             </div>
 
-            <div id="userAgent">
-                <h3>User Agent String</h3>
-                <span class="message"></span>
-            </div>
+            <div class="notes">
+                <div id="api-notes" class="apinotes">
+                    <h3><span class="highlight">*</span>API notes</h3>
+                    <p>Using the API is pretty straightforward - simply use the syntax shown in the tables above.</p>
+                    <p class="strong">The API groups test results for better accessibility:</p>
+                    <ul>
+                        <li><span class="lowlight">BREWSER.has</span> stores all browser capability results;</li>
+                        <li><span class="lowlight">BREWSER.device</span> has all device related info;</li>
+                        <li><span class="lowlight">BREWSER.browser</span> groups all browser tests.</li>
+                    </ul>
+                    <p class="strong">A few quick examples:</p>
+                    <ul>
+                        <li><span class="lowlight">BREWSER.UA</span> gives you the <span class="strong">User Agent String</span>;</li>
+                        <li><span class="lowlight">BREWSER.ua</span> gives you the lowercased <span class="strong">User Agent String</span>;</li>
+                        <li><span class="lowlight">BREWSER.resolution</span> returns <span class="strong">window.devicePixelRatio</span></li>
+                        <li><span class="lowlight">BREWSER.browser.chrome</span> tells you if you're on <span class="strong">Chrome</span>;</li>
+                        <li><span class="lowlight">BREWSER.device.mobile</span> tells you if the device is <span class="strong">mobile</span>;</li>
+                        <li><span class="lowlight">BREWSER.has.webGL</span> returns true if the browser supports <span class="strong">3D canvas</span>.</li>
+                    </ul>
+                    <p class="strong">Examples of combining simple tests:</p>
+                    <ul>
+                        <li><span class="lowlight">BREWSER.device.desktop &amp;&amp; BREWSER.device.touch</span> detects laptops with touch support;</li>
+                    </ul>
+                    <p>You can also access <span class="lowlight">BREWSER</span> via <span class="lowlight">br</span> on <span class="strong">window</span>, so that it's less typing for you.</p>
+                </div>
 
-            <div id="smallprint" class="smallprint">
-                <h3><span class="highlight">*</span>A quick note on accuracy</h3>
-                <p>Browser capability detection is pretty simple, but as you probably know device detection is a bit of a pain. <b><a href="https://github.com/handcraftedLDN/brewser" target="_blank">brewser.js</a></b> sniffs the User Agent string to detect certain device types and operating systems. That is to give you as much useful information as possible to distinguish between key device and OS types. As we know this can be tricky and inaccurate in most cases, please <b>#handlewithcare</b>.</p>
+                <div id="note-on-accuracy" class="smallprint">
+                    <h3><span class="highlight">**</span>A quick note on accuracy</h3>
+                    <p>Browser capability detection is pretty simple, but as you probably know device detection is a bit of a pain. <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">brewser.js</a> sniffs the User Agent string to detect certain device types and operating systems. That is to give you as much useful information as possible to distinguish between key device and OS types. As we know this can be tricky and inaccurate in most cases, please <span class="strong">#handlewithcare</span>.</p>
+                </div>
             </div>
 
             <div class="footer">
