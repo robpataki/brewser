@@ -41,12 +41,8 @@ You're done, let's see that pull request!
 
 GPL - 2015
 
-<p style="text-align: center;">
-    <a href="http://handcrafteddigital.london" target="_blank">
-        <img width="218" height="90" src="https://raw.githubusercontent.com/handcraftedLDN/brewser/master/handcrafted-digital-london-logo.png" alt="Handcrafted Digital London - Fine, hand made design and development from London"/>
-    </a>
-    <span style="display: block;">
-        Copyright &copy; 2015 <a href="https://github.com/handcraftedLDN/brewser" target="_blank">brewser.js</a> has been
-        <a href="http://handcrafteddigital.london" target="_blank">Handcrafted</a>
-    </span>
-</p>
+<a href="http://handcrafteddigital.london" target="_blank">
+    <img width="218" height="90" src="https://raw.githubusercontent.com/handcraftedLDN/brewser/master/handcrafted-digital-london-logo@2x.png" alt="Handcrafted Digital London - Fine, hand made design and development from London"/>
+</a>
+
+Copyright &copy; 2015 <a href="https://github.com/handcraftedLDN/brewser" target="_blank">brewser.js</a> has been <a href="http://handcrafteddigital.london" target="_blank">Handcrafted</a>
