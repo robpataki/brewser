@@ -1,0 +1,453 @@
+<!doctype html>
+<html>
+  <head>
+    <title>brewser.js demo</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+    
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #EFEFEF;
+            color: #222;
+            font-family: "Helvetica Medium", Arial, Verdana, sans;
+            font-weight: 300;
+        }
+        table {
+          border-collapse: collapse;
+          border-spacing: 0;
+        }
+
+        td,
+        th {
+          padding: 0;
+        }
+
+        td {
+            width: 50%;
+        }
+
+        * {
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #DD2234;
+        }
+
+
+        .wrapper {
+            width: 100%;
+            min-width: 300px;
+            overflow: hidden;
+            padding-top: 84px;
+        }
+        .content {
+            max-width: 980px;
+            margin: 0 auto;
+            height: auto;
+            padding: 0 30px 10px 30px;
+        }
+
+        .table {
+            border: 0;
+            padding: 0;
+            margin: 0 auto 30px auto;
+            width: 100%;
+        }
+
+        .table th,
+        .table tr {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            line-height: 100%;
+            margin: 0 auto;
+            min-height: 30px;
+            vertical-align: middle;
+            border-bottom: 1px solid #EFEFEF;
+        }
+
+        .table tr:last-child {
+            border-bottom: none;
+        }
+
+        .table th:nth-child(1n+1),
+        .table tr:nth-child(1n+1) {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .table th:nth-child(2n+2),
+        .table tr:nth-child(2n+2) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .table td:nth-child(2n+2) {
+            text-align: right;
+        }
+
+        .table td {
+            padding: 21px 20px 18px 20px;
+        }
+        .td-result {
+            text-align: right;
+            padding-right: 20px;
+            text-transform: lowercase;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin: 0 0 15px 0;
+        }
+        .message {
+            position: relative;
+            display: block;
+            padding: 21px 20px 18px 20px;
+            margin: 0 auto 30px auto;
+            min-height: 30px;
+            vertical-align: middle;
+            font-size: 1em;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .message_copy {
+            padding: 20px;
+            line-height: 140%;
+        }
+
+        .branding {
+            text-align: center;
+            line-height: 17px;
+            font-size: 0.75em;
+            margin-top: 84px;
+            padding-bottom: 42px;
+        }
+        .branding a {
+            display: inline-block;
+        }
+        .branding span {
+            display: block;
+        }
+
+        .logo {
+            width: 218px;
+            height: 90px;
+            margin: 0 auto;
+            background: url('../handcrafted-digital-london-logo.png') 0 0 no-repeat;
+            background-size: 218px 90px;
+        }
+
+        @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+            only screen and (-moz-min-device-pixel-ratio: 1.5),
+            only screen and (-o-min-device-pixel-ratio: 3/2),
+            only screen and (min-device-pixel-ratio: 1.5) {
+                .logo {
+                    background-image: url('../handcrafted-digital-london-logo@2x.png');
+                }
+        }
+    </style>
+  </head>
+  <body>    
+
+    <div class="wrapper">        
+        <div class="content">
+
+            <div id="basics">
+                <h3>BREWSER</h3>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>screenWidth</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>screenHeight</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>windowWidth</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>windowHeight</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>resolution</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="os">
+                <h3>BREWSER.os</h3>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>type</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="device">
+                <h3>BREWSER.device</h3>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>type</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>touch</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>mobile</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>tablet</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>desktop</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="browser">
+                <h3>BREWSER.browser</h3>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>type</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>version</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>fullVersion</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>string</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>chrome</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>safari</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>opera</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>firefox</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>ie</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>other</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>mobile</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="capabilities">
+                <h3>BREWSER.has</h3>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>canvas</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>webGL</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>requestAnimationFrame</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>cssTransform</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>mediaQueries</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>getUserMedia</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>audio tag</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>audio API</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>audioFormats.mp3</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>audioFormats.mp4</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>audioFormats.wav</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>audioFormats.ogg</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>web audio API</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>video tag</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>videoFormats.mp4</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>videoFormats.webm</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>videoFormats.ogg</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="userAgent">
+                <h3>User Agent String</h3>
+                <span class="message"></span>
+            </div>
+
+            <div class="footer">
+                <div class="branding">
+                    <p>
+                        <a href="http://handcrafteddigital.london" target="_blank">
+                            <span class="logo"></span>
+                        </a>
+                        <span>
+                            Copyright &copy; 2015 <a href="https://github.com/handcraftedLDN/brewser" target="_blank">brewser.js</a> has been
+                            <a href="http://handcrafteddigital.london" target="_blank">Handcrafted</a>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="../dist/brewser.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var _this = this;
+
+            _this.els = {};
+
+            _this.els.$os = $('#os');
+            _this.els.$os.find('td:eq(1)').html(BREWSER.os.type);
+
+            _this.els.$browser = $('#browser');
+            _this.els.$browser.find('td:eq(1)').html(BREWSER.browser.type);
+            _this.els.$browser.find('td:eq(3)').html(BREWSER.browser.version);
+            _this.els.$browser.find('td:eq(5)').html(BREWSER.browser.fullVersion);
+            _this.els.$browser.find('td:eq(7)').html(BREWSER.browser.string);
+            _this.els.$browser.find('td:eq(9)').html(BREWSER.browser.chrome.toString());
+            _this.els.$browser.find('td:eq(11)').html(BREWSER.browser.safari.toString());
+            _this.els.$browser.find('td:eq(13)').html(BREWSER.browser.opera.toString());
+            _this.els.$browser.find('td:eq(15)').html(BREWSER.browser.firefox.toString());
+            _this.els.$browser.find('td:eq(17)').html(BREWSER.browser.ie.toString());
+            _this.els.$browser.find('td:eq(19)').html(BREWSER.browser.other.toString());
+            _this.els.$browser.find('td:eq(21)').html(BREWSER.browser.mobile.toString());
+
+            _this.els.$device = $('#device');
+            _this.els.$device.find('td:eq(1)').html(BREWSER.device.type);
+            _this.els.$device.find('td:eq(3)').html(BREWSER.device.touch.toString());
+            _this.els.$device.find('td:eq(5)').html(BREWSER.device.mobile.toString());
+            _this.els.$device.find('td:eq(7)').html(BREWSER.device.tablet.toString());
+            _this.els.$device.find('td:eq(9)').html(BREWSER.device.desktop.toString());
+
+            _this.els.$capabilities = $('#capabilities');
+            _this.els.$capabilities.find('td:eq(1)').html(BREWSER.has.canvas.toString());
+            _this.els.$capabilities.find('td:eq(3)').html(BREWSER.has.webGL.toString());
+            _this.els.$capabilities.find('td:eq(5)').html(BREWSER.has.requestAnimationFrame.toString());
+            _this.els.$capabilities.find('td:eq(7)').html(BREWSER.has.cssTransform.toString());
+            _this.els.$capabilities.find('td:eq(9)').html(BREWSER.has.mediaQueries.toString());
+            _this.els.$capabilities.find('td:eq(11)').html(BREWSER.has.getUserMedia.toString());
+            _this.els.$capabilities.find('td:eq(13)').html(BREWSER.has.audio.toString());
+            _this.els.$capabilities.find('td:eq(15)').html(BREWSER.has.audioApi.toString());
+            _this.els.$capabilities.find('td:eq(17)').html(BREWSER.has.audioFormats.mp3.toString());
+            _this.els.$capabilities.find('td:eq(19)').html(BREWSER.has.audioFormats.mp4.toString());
+            _this.els.$capabilities.find('td:eq(21)').html(BREWSER.has.audioFormats.wav.toString());
+            _this.els.$capabilities.find('td:eq(23)').html(BREWSER.has.audioFormats.ogg.toString());
+            _this.els.$capabilities.find('td:eq(25)').html(BREWSER.has.webAudio.toString());
+            _this.els.$capabilities.find('td:eq(27)').html(BREWSER.has.video.toString());
+            _this.els.$capabilities.find('td:eq(29)').html(BREWSER.has.videoFormats.mp4.toString());
+            _this.els.$capabilities.find('td:eq(31)').html(BREWSER.has.videoFormats.webm.toString());
+            _this.els.$capabilities.find('td:eq(33)').html(BREWSER.has.videoFormats.ogg.toString());
+
+            _this.els.$basics = $('#basics');
+
+            $(window).on('resize orientationchange', function(event) {
+                _this.els.$basics.find('td:eq(1)').html(BREWSER.screenWidth + 'px');
+                _this.els.$basics.find('td:eq(3)').html(BREWSER.screenHeight + 'px');
+                _this.els.$basics.find('td:eq(5)').html(BREWSER.windowWidth + 'px');
+                _this.els.$basics.find('td:eq(7)').html(BREWSER.windowHeight + 'px');
+                _this.els.$basics.find('td:eq(9)').html(BREWSER.resolution);
+            });
+            setTimeout(function(){
+                $(window).resize();
+            }, 300);
+
+            _this.els.$userAgent = $('#userAgent');
+            _this.els.$userAgent.find('.message').html(BREWSER.UA);
+
+            _this.els.$os.removeClass('is-hidden');
+            _this.els.$browser.removeClass('is-hidden');
+            _this.els.$device.removeClass('is-hidden');
+            _this.els.$capabilities.removeClass('is-hidden');
+            _this.els.$basics.removeClass('is-hidden');
+            _this.els.$userAgent.removeClass('is-hidden');
+        });
+    </script>
+  </body>
+</html>
