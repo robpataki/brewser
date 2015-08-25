@@ -1,15 +1,29 @@
 # brewser.js
-Device and browser capability detection library
 
-## Demo page
+Brewser.js is a simple open source device and browser detection library.
 
-[http://handcraftedldn.github.io/brewser-demo](http://handcraftedldn.github.io/brewser-demo)
+## Installation
 
-[http://bit.ly/brewser-demo](http://bit.ly/brewser-demo)
+### Bower
 
-## Release bower package
+	$ bower install brewser
+	
+### NPM
 
-Please note, that the version number in 'version.json' overrides the version numbers both in 'package.json' and 'bower.json'. Make sure you bump up the version number in 'version.json' before release!
+	$ npm install brewser
+
+## Demos
+
+### Live demo
+[http://handcraftedldn.github.io/brewser/](http://handcraftedldn.github.io/brewser/)
+
+### Offline demo
+See `demo` folder in the project's root folder.
+
+
+## Release updated version of brewser.js
+
+Please note, that the version number in `version.json` overrides the version numbers both in `package.json` and `bower.json`. Make sure you bump up the version number in `version.json` before release!
 
 Once you're happy with your changes, run
 
@@ -19,8 +33,9 @@ Then commit your changes, push them up and tag the new release:
 
     $ git tag -a v0.0.2 -m "Version 0.0.2 release"
     $ git push origin master --tags
+    $ npm publish
 
-You're done!
+You're done, let's see that pull request!
 
 ## Licence
 
