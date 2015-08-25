@@ -13,6 +13,7 @@
     
     <style type="text/css">
         html, body {
+            margin: 0;
             width: 100%;
             height: 100%;
             background: #EFEFEF;
@@ -44,6 +45,10 @@
             color: #DD2234;
         }
 
+        .highlight {
+            color: #DD2234;   
+        }
+
 
         .wrapper {
             width: 100%;
@@ -51,6 +56,13 @@
             overflow: hidden;
             padding-top: 84px;
         }
+        
+        .intro {
+            margin-bottom: 84px;
+            font-size: 2em;
+            line-height: 1.5em;
+        }
+
         .content {
             max-width: 980px;
             margin: 0 auto;
@@ -121,6 +133,10 @@
             line-height: 140%;
         }
 
+        .smallprint {
+            margin-top: 84px;
+        }
+
         .branding {
             text-align: center;
             line-height: 17px;
@@ -157,6 +173,10 @@
 
     <div class="wrapper">        
         <div class="content">
+
+            <div id="intro" class="intro">
+                <b>brewser.js</b> is a simple open source device and browser detection library. This page demonstrates how its API gives you access to fairly accurate<a href="#smallprint">*</a> device info and browser capabilities.
+            </div>
 
             <div id="basics">
                 <h3>BREWSER</h3>
@@ -357,6 +377,11 @@
             <div id="userAgent">
                 <h3>User Agent String</h3>
                 <span class="message"></span>
+            </div>
+
+            <div id="smallprint" class="smallprint">
+                <h3><span class="highlight">*</span>A quick note on accuracy</h3>
+                <p>Browser capability detection is pretty simple, but as you probably know device detection is a bit of a pain. <b>brewser.js</b> sniffs the User Agent string to detect certain device types and operating systems. That is to give you as much useful information as possible to distinguish between key device and OS types. As we know this can be tricky and inaccurate in some cases, please <b>#handlewithcare</b>.</p>
             </div>
 
             <div class="footer">
