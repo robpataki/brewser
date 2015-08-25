@@ -1,0 +1,10 @@
+node_modules
+bower_components
+src
+version.json
+gulpfile.js
+brewser.sublime-project
+brewser.sublime-workspace
+bower.json
+.gitignore
+.npmignore
