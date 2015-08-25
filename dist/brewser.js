@@ -19,11 +19,12 @@
             }
             _this._exists = true;
 
-            console.log(' %c BREWSER is ready - use window.BREWSER or simply BREWSER ', 'background: #222; color: #bada55; line-height: 21px; font-size: 12px; padding: 4px 0; margin-bottom: 14px;');
+            console.log(' %c Hello BREWSER! v' + _this.VERSION + ' ' , 'background: #C41617; color: #FFFFFF; line-height: 21px; font-size: 12px; padding: 4px 0; margin-bottom: 14px;');
 
             
-            var _UA = window.navigator.userAgent.toLowerCase();
-            _this.UA = _UA;
+            _this.UA = window.navigator.userAgent;
+            _this.ua = _this.UA.toLowerCase();
+            var ua = _this.ua;
 
             _this.DEVICES = {
                 phone:      'phone',
@@ -39,11 +40,6 @@
                 ie: 'Internet Explorer',
                 silk: 'Silk',
                 other: 'Other'
-            };
-
-            _this.ORIENTATION = {
-                landscape: 'LANDSCAPE',
-                portrait: 'PORTRAIT'
             };
 
             _this.MINIMUM_DESKTOP_BROWSER_VERSIONS = {
@@ -78,7 +74,10 @@
 
             _this.device = {
                 type: _this.NOT_AVAILABLE,
-                orientation: _this.NOT_AVAILABLE,
+                orientation: {
+                    landscape: _this.NOT_AVAILABLE,
+                    portrait: _this.NOT_AVAILABLE 
+                },
                 screenWidth: _this.NOT_AVAILABLE,
                 screenHeight: _this.NOT_AVAILABLE,
                 windowWidth: _this.NOT_AVAILABLE,
@@ -126,16 +125,19 @@
                 _this.windowHeight = window.innerHeight;
                 _this.resolution = window.devicePixelRatio || 1;
 
+                _this.device.orientation.portrait = false;
+                _this.device.orientation.landscape = false;
+
                 if(_this.windowWidth > _this.windowHeight) {
-                    _this.device.orientation = _this.ORIENTATION.landscape;
+                    _this.device.orientation.landscape = true;
                 } else {
-                    _this.device.orientation = _this.ORIENTATION.portrait;
+                    _this.device.orientation.portrait = true;
                 }
 
                 _this.device.touch = _hasTouch();
 
                 _this.device.mobile = _this.device.touch && _this.browser.mobile && _this.windowWidth < 680;
-                _this.device.tablet = _this.device.touch && _this.browser.mobile && (_this.windowWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(_UA));
+                _this.device.tablet = _this.device.touch && _this.browser.mobile && (_this.windowWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
 
                 if(_this.device.tablet) {
                     _this.device.mobile = false;
@@ -161,19 +163,19 @@
 ////////
 
             function _isOSWin() {
-                return /(windows|windows nt)/g.test(_UA);
+                return /(windows|windows nt)/g.test(ua);
             }
 
             function _isOSMac() {
-                return /(macintosh|intel mac|os x)/g.test(_UA);
+                return /(macintosh|intel mac|os x)/g.test(ua);
             }
 
             function _isOSiOS() {
-                return /(ipad|iphone|ipod)/g.test(_UA);
+                return /(ipad|iphone|ipod)/g.test(ua);
             }
 
             function _isOSAndroid() {
-                return _UA.indexOf('android') > -1;
+                return ua.indexOf('android') > -1;
             }
 
             function _detectOS() {
@@ -198,40 +200,40 @@
 ////////
 
             function _isBrowserIE() {
-                return  /(windows nt|msie)/g.test(_UA);
+                return  /(windows nt|msie)/g.test(ua);
             }
             
             function _isBrowserFirefox() {
-                return _UA.indexOf('firefox') > -1;
+                return ua.indexOf('firefox') > -1;
             }
             
             function _isBrowserOpera() {
-                return /(opera|opr)/g.test(_UA);
+                return /(opera|opr)/g.test(ua);
             }
             
             function _isBrowserSafari() {
-                return _UA.indexOf('safari') > -1 && !_isBrowserOpera() && !_isBrowserChrome() && !_isOSAndroid();
+                return ua.indexOf('safari') > -1 && !_isBrowserOpera() && !_isBrowserChrome() && !_isOSAndroid();
             }
             
             function _isBrowserChrome() {
-                return (_UA.indexOf('chrome') > -1 || _UA.indexOf('crios') > -1) && !_isBrowserOpera();
+                return (ua.indexOf('chrome') > -1 || ua.indexOf('crios') > -1) && !_isBrowserOpera();
             }
 
             function _isBrowserSilk() {
-                return  /(silk)/g.test(_UA);
+                return  /(silk)/g.test(ua);
             }
 
             function _getBrowserVersion(browserKey, type) {
                 var keys = browserKey.split('|');
                 var chunk;
-                var arr = _UA.split(' ');
+                var arr = ua.split(' ');
 
                 for(var i = 0; i < keys.length; i++) {
                     var key = keys[i];
 
                     if(key === 'msie') {
                         var re  = new RegExp('msie ([0-9]{1,}[\.0-9]{0,})');
-                        if (re.exec(_UA) !== null) {
+                        if (re.exec(ua) !== null) {
                             if(type !== 'short') {
                                 chunk = RegExp.$1;
                             } else {
@@ -242,7 +244,7 @@
                         // Checking for 11+ version of IE
                         if (typeof chunk === 'undefined') {
                             if (!window.ActiveXObject && 'ActiveXObject' in window) {
-                                chunk = _UA.substring(_UA.indexOf('rv:') + 3, _UA.indexOf(')'));
+                                chunk = ua.substring(ua.indexOf('rv:') + 3, ua.indexOf(')'));
                             }
                         }
                     } else {
@@ -317,7 +319,7 @@
                 _this.browser.fullVersion = fullVersion;
                 _this.browser.string = type + ' ' + fullVersion;
 
-                _this.browser.mobile = /(blackberry|kindle|silk|mobile|tablet|mini|android|ios|ipod|iphone|ipad)/g.test(_UA);
+                _this.browser.mobile = /(blackberry|kindle|silk|mobile|tablet|mini|android|ios|ipod|iphone|ipad)/g.test(ua);
             }
 
 
@@ -452,5 +454,5 @@
     };
 
     _brewser._init();
-    global.BREWSER = _brewser;
+    global.BREWSER = global.br = _brewser;
 }(this));

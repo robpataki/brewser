@@ -221,7 +221,7 @@
             </div>
 
             <div id="userAgent">
-                <h3>BREWSER.UA</h3>
+                <h3>BREWSER.ua</h3>
                 <span class="message"></span>
             </div>
 
@@ -259,6 +259,14 @@
                         </tr>
                         <tr>
                             <td>desktop</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>portrait</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>landscape</td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -405,7 +413,7 @@
                     </ul>
                     <p class="strong">A few quick examples:</p>
                     <ul>
-                        <li><span class="lowlight">BREWSER.UA</span> gives you the <span class="strong">User Agent String</span>;</li>
+                        <li><span class="lowlight">BREWSER.ua</span> gives you the <span class="strong">User Agent String</span>;</li>
                         <li><span class="lowlight">BREWSER.ua</span> gives you the lowercased <span class="strong">User Agent String</span>;</li>
                         <li><span class="lowlight">BREWSER.resolution</span> returns <span class="strong">window.devicePixelRatio</span></li>
                         <li><span class="lowlight">BREWSER.browser.chrome</span> tells you if you're on <span class="strong">Chrome</span>;</li>
@@ -415,6 +423,7 @@
                     <p class="strong">Examples of combining simple tests:</p>
                     <ul>
                         <li><span class="lowlight">BREWSER.device.desktop &amp;&amp; BREWSER.device.touch</span> detects laptops with touch support;</li>
+                        <li><span class="lowlight">!BREWSER.device.desktop &amp;&amp; BREWSER.device.orientation.portrait</span> to see if mobile/tablet is in portrait mode;</li>
                     </ul>
                     <p>You can also access <span class="lowlight">BREWSER</span> via <span class="lowlight">br</span> on <span class="strong">window</span>, so that it's less typing for you.</p>
                 </div>
@@ -499,13 +508,14 @@
                 _this.els.$basics.find('td:eq(5)').html(BREWSER.windowWidth + 'px');
                 _this.els.$basics.find('td:eq(7)').html(BREWSER.windowHeight + 'px');
                 _this.els.$basics.find('td:eq(9)').html(BREWSER.resolution);
+
+                _this.els.$device.find('td:eq(11)').html(BREWSER.device.orientation.portrait.toString());
+                _this.els.$device.find('td:eq(13)').html(BREWSER.device.orientation.landscape.toString());
             });
-            setTimeout(function(){
-                $(window).resize();
-            }, 300);
+            $(window).resize();
 
             _this.els.$userAgent = $('#userAgent');
-            _this.els.$userAgent.find('.message').html(BREWSER.UA);
+            _this.els.$userAgent.find('.message').html(BREWSER.ua);
 
             _this.els.$os.removeClass('is-hidden');
             _this.els.$browser.removeClass('is-hidden');
