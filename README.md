@@ -6,9 +6,13 @@ Brewser.js is a simple open source device and browser detection library.
 
 ### Bower
 
+[![Bower version](https://badge.fury.io/bo/brewser.svg)](http://badge.fury.io/bo/brewser)
+
 	$ bower install brewser
 	
 ### NPM
+
+[![npm version](https://badge.fury.io/js/brewser.svg)](http://badge.fury.io/js/brewser)
 
 	$ npm install brewser
 
