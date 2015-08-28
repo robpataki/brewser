@@ -10,7 +10,7 @@
         _init: function() {
 
             // Version bumped by Gulp, don't touch
-            this.VERSION = '0.2.9';
+            this.VERSION = '0.3.0';
 
             var _this = this;
 
@@ -113,8 +113,8 @@
             function _detectDevice() {
                 _this.screenWidth = window.screen.width;
                 _this.screenHeight = window.screen.height;
-                _this.windowWidth = window.innerWidth;
-                _this.windowHeight = window.innerHeight;
+                _this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
+                _this.windowHeight = window.innerHeight || document.documentElement.clientHeight;
                 _this.resolution = window.devicePixelRatio || 1;
 
                 _this.device.orientation.portrait = false;

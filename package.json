@@ -1,6 +1,6 @@
 {
     "name": "brewser",
-    "version": "0.2.9",
+    "version": "0.3.0",
     "description": "Device and browser detection",
     "main": "dist/brewser.js",
     "scripts": {
