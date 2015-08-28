@@ -36,10 +36,10 @@
             width: 50%;
         }
 
-        * {
+        /** {
             position: relative;
             box-sizing: border-box;
-        }
+        }*/
 
         a {
             text-decoration: none;
@@ -60,21 +60,19 @@
         .wrapper {
             width: 100%;
             min-width: 300px;
-            overflow: hidden;
             padding-top: 84px;
-        }
-        
-        .intro {
-            margin-bottom: 84px;
-            font-size: 2em;
-            line-height: 1.5em;
         }
 
         .content {
             max-width: 810px;
             margin: 0 auto;
-            height: auto;
             padding: 0 45px 10px 45px;
+        }
+
+        .intro {
+            margin-bottom: 84px;
+            font-size: 2em;
+            line-height: 1.5em;
         }
 
         .table {
@@ -100,8 +98,9 @@
             border-bottom: none;
         }
 
-        .table th:nth-child(1n+1),
-        .table tr:nth-child(1n+1) {
+        .table th,
+        .table tr {
+            background-color: #FCFCFC;
             background-color: rgba(0, 0, 0, 0.05);
         }
         .table th:nth-child(2n+2),
@@ -135,6 +134,7 @@
             min-height: 30px;
             vertical-align: middle;
             font-size: 1em;
+            background-color: #FCFCFC;
             background-color: rgba(0, 0, 0, 0.05);
         }
         .message_copy {

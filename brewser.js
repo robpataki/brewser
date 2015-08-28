@@ -113,8 +113,9 @@
             function _detectDevice() {
                 _this.screenWidth = window.screen.width;
                 _this.screenHeight = window.screen.height;
-                _this.windowWidth = window.innerWidth;
-                _this.windowHeight = window.innerHeight;
+                // TODO - add this to brewser REPO
+                _this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
+                _this.windowHeight = window.innerHeight || document.documentElement.clientWidth;
                 _this.resolution = window.devicePixelRatio || 1;
 
                 _this.device.orientation.portrait = false;
