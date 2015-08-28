@@ -19,7 +19,9 @@
             }
             _this._exists = true;
 
-            console.log(' %c Hello BREWSER! v' + _this.VERSION + ' ' , 'background: #C41617; color: #FFFFFF; line-height: 21px; font-size: 12px; padding: 4px 0; margin-bottom: 14px;');
+            if(typeof console !== 'undefined') {
+                console.log(' %c Hello BREWSER! v' + _this.VERSION + ' ' , 'background: #C41617; color: #FFFFFF; line-height: 21px; font-size: 12px; padding: 4px 0; margin-bottom: 14px;');
+            }
 
             
             _this.UA = window.navigator.userAgent;
