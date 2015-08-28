@@ -449,7 +449,11 @@
                 _detectCapabilities();
                 _detectBrowser();
 
-                window.addEventListener('resize', _detectDevice);
+                if(typeof window.addEventListener !== 'undefined') {
+                    window.addEventListener('resize', _detectDevice);
+                } else if(typeof window.attachEvent !== 'undefined') {
+                    window.attachEvent('onresize', _detectDevice);
+                }
             })(this);
         }
     };
