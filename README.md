@@ -20,6 +20,8 @@ Brewser.js is a simple open source device and browser detection library.
 
 ### Live demo
 [http://handcraftedldn.github.io/brewser/](http://handcraftedldn.github.io/brewser/)
+or 
+[bit.ly/br3ws3r](http://bit.ly/br3ws3r)
 
 ### Offline demo
 See `demo` folder in the project's root folder.
