@@ -443,18 +443,13 @@
                 _detectVideo();
             }
 
-            function _initResize() {
-                window.addEventListener('resize', _detectDevice);
-                window.addEventListener('orientationchange', _detectDevice);
-            }
-
             (function() {
                 _detectDevice();
                 _detectOS();
                 _detectCapabilities();
                 _detectBrowser();
 
-                _initResize();
+                window.addEventListener('resize', _detectDevice);
             })(this);
         }
     };
