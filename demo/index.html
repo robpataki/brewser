@@ -72,10 +72,10 @@
         }
 
         .content {
-            max-width: 980px;
+            max-width: 810px;
             margin: 0 auto;
             height: auto;
-            padding: 0 30px 10px 30px;
+            padding: 0 45px 10px 45px;
         }
 
         .table {
@@ -83,6 +83,7 @@
             padding: 0;
             margin: 0 auto 30px auto;
             width: 100%;
+            font-size: 1em;
         }
 
         .table th,
@@ -168,6 +169,13 @@
             background-size: 218px 90px;
         }
 
+        #version {
+            position: absolute;
+            top: 0;
+            right: 12px;
+            font-size: 0.5em;
+        }
+
         @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
             only screen and (-moz-min-device-pixel-ratio: 1.5),
             only screen and (-o-min-device-pixel-ratio: 3/2),
@@ -176,13 +184,20 @@
                     background-image: url('../handcrafted-digital-london-logo@2x.png');
                 }
         }
+
+        @media screen and (max-width: 640px) {
+            .intro {
+                font-size: 1.5em;
+                line-height: 1.5em;
+            }
+        }
     </style>
   </head>
   <body>    
 
-    <div class="wrapper">        
+    <div class="wrapper">    
+        <div id="version"></div>    
         <div class="content">
-
             <div id="intro" class="intro">
                 <p>
                     <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">Brewser.js</a> is a simple open source device and browser detection library. This page demonstrates how the API<a href="#api-notes">*</a> gives you access to fairly accurate<a href="#note-on-accuracy">**</a> device info and browser capabilities.
@@ -190,6 +205,11 @@
                 <p>
                     Let's see what <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">brewser.js</a> has found for you:
                 </p>
+            </div>
+
+            <div id="userAgent">
+                <h3>BREWSER.ua</h3>
+                <span class="message"></span>
             </div>
 
             <div id="basics">
@@ -220,29 +240,16 @@
                 </table>
             </div>
 
-            <div id="userAgent">
-                <h3>BREWSER.ua</h3>
-                <span class="message"></span>
-            </div>
-
-            <div id="os">
-                <h3>BREWSER.os</h3>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>type</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
             <div id="device">
                 <h3>BREWSER.device</h3>
                 <table class="table">
                     <tbody>
                         <tr>
                             <td>type</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>os</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -311,6 +318,10 @@
                         </tr>
                         <tr>
                             <td>ie</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>kindle</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -451,35 +462,40 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../dist/brewser.js"></script>
+    <script type="text/javascript" src="../dist/brewser.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             var _this = this;
 
             _this.els = {};
 
-            _this.els.$os = $('#os');
-            _this.els.$os.find('td:eq(1)').html(BREWSER.os.type);
+            _this.els.$userAgent = $('#userAgent');
+            _this.els.$userAgent.find('.message').html(BREWSER.ua);
+
+            _this.els.$version = $('#version');
+            _this.els.$version.html('v' + BREWSER.VERSION);
 
             _this.els.$browser = $('#browser');
-            _this.els.$browser.find('td:eq(1)').html(BREWSER.browser.type);
-            _this.els.$browser.find('td:eq(3)').html(BREWSER.browser.version);
-            _this.els.$browser.find('td:eq(5)').html(BREWSER.browser.fullVersion);
-            _this.els.$browser.find('td:eq(7)').html(BREWSER.browser.string);
+            _this.els.$browser.find('td:eq(1)').html(BREWSER.browser.type.toString());
+            _this.els.$browser.find('td:eq(3)').html(BREWSER.browser.version.toString());
+            _this.els.$browser.find('td:eq(5)').html(BREWSER.browser.fullVersion.toString());
+            _this.els.$browser.find('td:eq(7)').html(BREWSER.browser.string.toString());
             _this.els.$browser.find('td:eq(9)').html(BREWSER.browser.chrome.toString());
             _this.els.$browser.find('td:eq(11)').html(BREWSER.browser.safari.toString());
             _this.els.$browser.find('td:eq(13)').html(BREWSER.browser.opera.toString());
             _this.els.$browser.find('td:eq(15)').html(BREWSER.browser.firefox.toString());
             _this.els.$browser.find('td:eq(17)').html(BREWSER.browser.ie.toString());
-            _this.els.$browser.find('td:eq(19)').html(BREWSER.browser.other.toString());
-            _this.els.$browser.find('td:eq(21)').html(BREWSER.browser.mobile.toString());
+            _this.els.$browser.find('td:eq(19)').html(BREWSER.browser.kindle.toString());
+            _this.els.$browser.find('td:eq(21)').html(BREWSER.browser.other.toString());
+            _this.els.$browser.find('td:eq(23)').html(BREWSER.browser.mobile.toString());
 
             _this.els.$device = $('#device');
-            _this.els.$device.find('td:eq(1)').html(BREWSER.device.type);
-            _this.els.$device.find('td:eq(3)').html(BREWSER.device.touch.toString());
-            _this.els.$device.find('td:eq(5)').html(BREWSER.device.mobile.toString());
-            _this.els.$device.find('td:eq(7)').html(BREWSER.device.tablet.toString());
-            _this.els.$device.find('td:eq(9)').html(BREWSER.device.desktop.toString());
+            _this.els.$device.find('td:eq(1)').html(BREWSER.device.type.toString());
+            _this.els.$device.find('td:eq(3)').html(BREWSER.device.os.toString());
+            _this.els.$device.find('td:eq(5)').html(BREWSER.device.touch.toString());
+            _this.els.$device.find('td:eq(7)').html(BREWSER.device.mobile.toString());
+            _this.els.$device.find('td:eq(9)').html(BREWSER.device.tablet.toString());
+            _this.els.$device.find('td:eq(11)').html(BREWSER.device.desktop.toString());
 
             _this.els.$capabilities = $('#capabilities');
             _this.els.$capabilities.find('td:eq(1)').html(BREWSER.has.canvas.toString());
@@ -509,20 +525,10 @@
                 _this.els.$basics.find('td:eq(7)').html(BREWSER.windowHeight + 'px');
                 _this.els.$basics.find('td:eq(9)').html(BREWSER.resolution);
 
-                _this.els.$device.find('td:eq(11)').html(BREWSER.device.orientation.portrait.toString());
-                _this.els.$device.find('td:eq(13)').html(BREWSER.device.orientation.landscape.toString());
+                _this.els.$device.find('td:eq(13)').html(BREWSER.device.orientation.portrait.toString());
+                _this.els.$device.find('td:eq(15)').html(BREWSER.device.orientation.landscape.toString());
             });
             $(window).resize();
-
-            _this.els.$userAgent = $('#userAgent');
-            _this.els.$userAgent.find('.message').html(BREWSER.ua);
-
-            _this.els.$os.removeClass('is-hidden');
-            _this.els.$browser.removeClass('is-hidden');
-            _this.els.$device.removeClass('is-hidden');
-            _this.els.$capabilities.removeClass('is-hidden');
-            _this.els.$basics.removeClass('is-hidden');
-            _this.els.$userAgent.removeClass('is-hidden');
         });
     </script>
   </body>

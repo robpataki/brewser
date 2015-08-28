@@ -39,16 +39,8 @@
                 firefox: 'Firefox',
                 ie: 'Internet Explorer',
                 silk: 'Silk',
+                kindle: 'Kindle',
                 other: 'Other'
-            };
-
-            _this.MINIMUM_DESKTOP_BROWSER_VERSIONS = {
-                chrome:     33,
-                crios:      33,
-                safari:     6,
-                firefox:    30,
-                ie:         9,
-                opera:      22
             };
 
             _this.NOT_AVAILABLE = 'N/A';
@@ -64,16 +56,14 @@
                 firefox: false,
                 opera: false,
                 silk: false,
+                kindle: false,
                 other: false,
                 mobile: false
             };
 
-            _this.os = {
-                type: _this.NOT_AVAILABLE
-            };
-
             _this.device = {
                 type: _this.NOT_AVAILABLE,
+                os: _this.NOT_AVAILABLE,
                 orientation: {
                     landscape: _this.NOT_AVAILABLE,
                     portrait: _this.NOT_AVAILABLE 
@@ -136,7 +126,7 @@
 
                 _this.device.touch = _hasTouch();
 
-                _this.device.mobile = _this.device.touch && _this.browser.mobile && _this.windowWidth < 680;
+                _this.device.mobile = (_this.browser.mobile || _this.device.touch) && _this.windowWidth < 680;
                 _this.device.tablet = _this.device.touch && _this.browser.mobile && (_this.windowWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
 
                 if(_this.device.tablet) {
@@ -191,7 +181,7 @@
                     type = 'Mac OS X';
                 }
 
-                _this.os.type = type;
+                _this.device.os = type;
             }
 
 
@@ -221,6 +211,10 @@
 
             function _isBrowserSilk() {
                 return  /(silk)/g.test(ua);
+            }
+
+            function _isBrowserKindle() {
+                return  /(kindle)/g.test(ua);
             }
 
             function _getBrowserVersion(browserKey, type) {
@@ -279,7 +273,12 @@
                 var version = _this.NOT_AVAILABLE;
                 var fullVersion = _this.NOT_AVAILABLE;
 
-                if (_isBrowserOpera()) {
+                if (_isBrowserKindle()) {
+                    type = _this.BROWSERS.kindle;
+                    version = _getBrowserVersion('kindle', 'short');
+                    fullVersion = _getBrowserVersion('kindle');
+                    _this.browser.kindle = true;
+                } else if (_isBrowserOpera()) {
                     type = _this.BROWSERS.opera;
                     version = _getBrowserVersion('opr|opera', 'short');
                     fullVersion = _getBrowserVersion('opr|opera');
@@ -319,7 +318,7 @@
                 _this.browser.fullVersion = fullVersion;
                 _this.browser.string = type + ' ' + fullVersion;
 
-                _this.browser.mobile = /(blackberry|kindle|silk|mobile|tablet|mini|android|ios|ipod|iphone|ipad)/g.test(ua);
+                _this.browser.mobile = /(blackberry|silk|mobile|tablet|mini|android|ios|ipod|iphone|ipad)/g.test(ua);
             }
 
 
@@ -384,6 +383,10 @@
                     _this.has.videoFormats.mp4 = videoEl.canPlayType('video/mp4') !== "" ? true : false;
                     _this.has.videoFormats.webm = videoEl.canPlayType('video/webm') !== "" ? true : false;
                     _this.has.videoFormats.ogg = videoEl.canPlayType('video/ogg') !== "" ? true : false;
+                } else {
+                    _this.has.videoFormats.mp4 = false;
+                    _this.has.videoFormats.webm = false;
+                    _this.has.videoFormats.ogg = false;
                 }
             }
 
@@ -417,6 +420,11 @@
                     _this.has.audioFormats.ogg = !!(audioEl.canPlayType && audioEl.canPlayType('audio/ogg; codecs="vorbis"').replace(/no/, ''));
                     _this.has.audioFormats.wav = !!(audioEl.canPlayType && audioEl.canPlayType('audio/wav; codecs="1"').replace(/no/, ''));
                     _this.has.audioFormats.mp4 = !!(audioEl.canPlayType && audioEl.canPlayType('audio/mp4; codecs="mp4a.40.2"').replace(/no/, ''));
+                } else {
+                    _this.has.audioFormats.mp3 = false;
+                    _this.has.audioFormats.ogg = false;
+                    _this.has.audioFormats.wav = false;
+                    _this.has.audioFormats.mp4 = false;
                 }
 
                 _this.has.webAudio = _hasWebAudio();
@@ -434,16 +442,12 @@
             }
 
             function _initResize() {
-                window.addEventListener('resize', _onResize);
-                window.addEventListener('orientationchange', _onResize);
-                window.dispatchEvent(new Event('resize'));
-            }
-
-            function _onResize(event) {
-                _detectDevice();    
+                window.addEventListener('resize', _detectDevice);
+                window.addEventListener('orientationchange', _detectDevice);
             }
 
             (function() {
+                _detectDevice();
                 _detectOS();
                 _detectCapabilities();
                 _detectBrowser();
