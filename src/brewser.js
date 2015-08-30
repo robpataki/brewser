@@ -75,7 +75,7 @@
                 windowWidth: _this.NOT_AVAILABLE,
                 windowHeight: _this.NOT_AVAILABLE,
                 resolution: _this.NOT_AVAILABLE,
-                mobile: _this.NOT_AVAILABLE,
+                phone: _this.NOT_AVAILABLE,
                 tablet: _this.NOT_AVAILABLE,
                 desktop: _this.NOT_AVAILABLE,
                 touch: _this.NOT_AVAILABLE,
@@ -128,12 +128,12 @@
 
                 _this.device.touch = _hasTouch();
 
-                _this.device.mobile = (_this.browser.mobile || _this.device.touch) && _this.screenWidth < 680;
+                _this.device.phone = (_this.browser.mobile || _this.device.touch) && _this.screenWidth < 680;
                 _this.device.tablet = (_this.browser.mobile || _this.device.touch) && (_this.screenWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
 
-                _this.device.desktop = !_this.device.mobile && !_this.device.tablet;
+                _this.device.desktop = !_this.device.phone && !_this.device.tablet;
 
-                if(_this.device.mobile) {
+                if(_this.device.phone) {
                     _this.device.type = _this.DEVICES.phone;
                 } else if(_this.device.tablet) {
                     _this.device.type = _this.DEVICES.tablet;

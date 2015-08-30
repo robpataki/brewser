@@ -251,7 +251,7 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td>mobile</td>
+                            <td>phone</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -422,13 +422,13 @@
                         <li><span class="lowlight">BREWSER.ua</span> gives you the lowercased <span class="strong">User Agent String</span>;</li>
                         <li><span class="lowlight">BREWSER.resolution</span> returns <span class="strong">window.devicePixelRatio</span></li>
                         <li><span class="lowlight">BREWSER.browser.chrome</span> tells you if you're on <span class="strong">Chrome</span>;</li>
-                        <li><span class="lowlight">BREWSER.device.mobile</span> tells you if the device is <span class="strong">mobile</span>;</li>
+                        <li><span class="lowlight">BREWSER.device.phone</span> tells you if the device is a <span class="strong">phone</span>;</li>
                         <li><span class="lowlight">BREWSER.has.webGL</span> returns true if the browser supports <span class="strong">3D canvas</span>.</li>
                     </ul>
                     <p class="strong">Examples of combining simple tests:</p>
                     <ul>
                         <li><span class="lowlight">BREWSER.device.desktop &amp;&amp; BREWSER.device.touch</span> detects laptops with touch support;</li>
-                        <li><span class="lowlight">!BREWSER.device.desktop &amp;&amp; BREWSER.device.orientation.portrait</span> to see if mobile/tablet is in portrait mode;</li>
+                        <li><span class="lowlight">!BREWSER.device.desktop &amp;&amp; BREWSER.device.orientation.portrait</span> to see if the phone/tablet is in portrait mode;</li>
                     </ul>
                     <p>You can also access <span class="lowlight">BREWSER</span> via <span class="lowlight">br</span> on <span class="strong">window</span>, so that it's less typing for you.</p>
                 </div>
@@ -487,7 +487,7 @@
             _this.els.$device.find('td:eq(1)').html(BREWSER.device.type.toString());
             _this.els.$device.find('td:eq(3)').html(BREWSER.device.os.toString());
             _this.els.$device.find('td:eq(5)').html(BREWSER.device.touch.toString());
-            _this.els.$device.find('td:eq(7)').html(BREWSER.device.mobile.toString());
+            _this.els.$device.find('td:eq(7)').html(BREWSER.device.phone.toString());
             _this.els.$device.find('td:eq(9)').html(BREWSER.device.tablet.toString());
             _this.els.$device.find('td:eq(11)').html(BREWSER.device.desktop.toString());
 
