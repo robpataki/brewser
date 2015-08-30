@@ -128,12 +128,8 @@
 
                 _this.device.touch = _hasTouch();
 
-                _this.device.mobile = (_this.browser.mobile || _this.device.touch) && _this.windowWidth < 680;
-                _this.device.tablet = _this.device.touch && _this.browser.mobile && (_this.windowWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
-
-                if(_this.device.tablet) {
-                    _this.device.mobile = false;
-                }
+                _this.device.mobile = (_this.browser.mobile || _this.device.touch) && _this.screenWidth < 680;
+                _this.device.tablet = (_this.browser.mobile || _this.device.touch) && (_this.screenWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
 
                 _this.device.desktop = !_this.device.mobile && !_this.device.tablet;
 
