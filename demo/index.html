@@ -239,10 +239,6 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td>type</td>
-                            <td></td>
-                        </tr>
-                        <tr>
                             <td>os</td>
                             <td></td>
                         </tr>
@@ -343,7 +339,7 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td>requestAnimationFrame</td>
+                            <td>rAF</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -484,17 +480,16 @@
             _this.els.$browser.find('td:eq(23)').html(BREWSER.browser.mobile.toString());
 
             _this.els.$device = $('#device');
-            _this.els.$device.find('td:eq(1)').html(BREWSER.device.type.toString());
-            _this.els.$device.find('td:eq(3)').html(BREWSER.device.os.toString());
-            _this.els.$device.find('td:eq(5)').html(BREWSER.device.touch.toString());
-            _this.els.$device.find('td:eq(7)').html(BREWSER.device.phone.toString());
-            _this.els.$device.find('td:eq(9)').html(BREWSER.device.tablet.toString());
-            _this.els.$device.find('td:eq(11)').html(BREWSER.device.desktop.toString());
+            _this.els.$device.find('td:eq(1)').html(BREWSER.device.os.toString());
+            _this.els.$device.find('td:eq(3)').html(BREWSER.device.touch.toString());
+            _this.els.$device.find('td:eq(5)').html(BREWSER.device.phone.toString());
+            _this.els.$device.find('td:eq(7)').html(BREWSER.device.tablet.toString());
+            _this.els.$device.find('td:eq(9)').html(BREWSER.device.desktop.toString());
 
             _this.els.$capabilities = $('#capabilities');
             _this.els.$capabilities.find('td:eq(1)').html(BREWSER.has.canvas.toString());
             _this.els.$capabilities.find('td:eq(3)').html(BREWSER.has.webGL.toString());
-            _this.els.$capabilities.find('td:eq(5)').html(BREWSER.has.requestAnimationFrame.toString());
+            _this.els.$capabilities.find('td:eq(5)').html(BREWSER.has.rAF.toString());
             _this.els.$capabilities.find('td:eq(7)').html(BREWSER.has.cssTransform.toString());
             _this.els.$capabilities.find('td:eq(9)').html(BREWSER.has.mediaQueries.toString());
             _this.els.$capabilities.find('td:eq(11)').html(BREWSER.has.getUserMedia.toString());
@@ -519,8 +514,8 @@
                 _this.els.$basics.find('td:eq(7)').html(BREWSER.windowHeight + 'px');
                 _this.els.$basics.find('td:eq(9)').html(BREWSER.resolution);
 
-                _this.els.$device.find('td:eq(13)').html(BREWSER.device.orientation.portrait.toString());
-                _this.els.$device.find('td:eq(15)').html(BREWSER.device.orientation.landscape.toString());
+                _this.els.$device.find('td:eq(11)').html(BREWSER.device.orientation.portrait.toString());
+                _this.els.$device.find('td:eq(13)').html(BREWSER.device.orientation.landscape.toString());
             });
             $(window).resize();
         });

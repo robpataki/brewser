@@ -64,7 +64,6 @@
             };
 
             _this.device = {
-                type: _this.NOT_AVAILABLE,
                 os: _this.NOT_AVAILABLE,
                 orientation: {
                     landscape: _this.NOT_AVAILABLE,
@@ -83,7 +82,7 @@
             };
 
             _this.has = {                
-                requestAnimationFrame: _this.NOT_AVAILABLE,
+                rAF: _this.NOT_AVAILABLE,
                 canvas2d: _this.NOT_AVAILABLE,
                 webGL: _this.NOT_AVAILABLE,
                 cssTransform: _this.NOT_AVAILABLE,
@@ -132,14 +131,6 @@
                 _this.device.tablet = (_this.browser.mobile || _this.device.touch) && (_this.screenWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
 
                 _this.device.desktop = !_this.device.phone && !_this.device.tablet;
-
-                if(_this.device.phone) {
-                    _this.device.type = _this.DEVICES.phone;
-                } else if(_this.device.tablet) {
-                    _this.device.type = _this.DEVICES.tablet;
-                } else {
-                    _this.device.type = _this.DEVICES.desktop;
-                }
 
                 _this.device.ios = _isOSiOS();
             }
@@ -429,7 +420,7 @@
             }
 
             function _detectCapabilities() {
-                _this.has.requestAnimationFrame = _hasRAF();
+                _this.has.rAF = _hasRAF();
                 _this.has.cssTransform = _hasCSSTransform();
                 _this.has.mediaQueries = _hasMediaQueries();
                 _this.has.getUserMedia = _hasGetUserMedia();
