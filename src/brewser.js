@@ -130,6 +130,10 @@
                 _this.device.phone = (_this.browser.mobile || _this.device.touch) && _this.screenWidth < 680;
                 _this.device.tablet = (_this.browser.mobile || _this.device.touch) && (_this.screenWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
 
+                if(_this.device.tablet) {
+                    _this.device.phone = false;
+                }
+
                 _this.device.desktop = !_this.device.phone && !_this.device.tablet;
 
                 _this.device.ios = _isOSiOS();
@@ -369,9 +373,9 @@
                 _this.has.video = !!videoEl && typeof videoEl.canPlayType !== 'undefined';
 
                 if(_this.has.video) {
-                    _this.has.videoFormats.mp4 = videoEl.canPlayType('video/mp4') !== "" ? true : false;
-                    _this.has.videoFormats.webm = videoEl.canPlayType('video/webm') !== "" ? true : false;
-                    _this.has.videoFormats.ogg = videoEl.canPlayType('video/ogg') !== "" ? true : false;
+                    _this.has.videoFormats.mp4 = videoEl.canPlayType('video/mp4') !== '' ? true : false;
+                    _this.has.videoFormats.webm = videoEl.canPlayType('video/webm') !== '' ? true : false;
+                    _this.has.videoFormats.ogg = videoEl.canPlayType('video/ogg') !== '' ? true : false;
                 } else {
                     _this.has.videoFormats.mp4 = false;
                     _this.has.videoFormats.webm = false;
