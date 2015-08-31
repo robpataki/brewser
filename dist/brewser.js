@@ -10,7 +10,7 @@
         _init: function() {
 
             // Version bumped by Gulp, don't touch
-            this.VERSION = '0.3.2';
+            this.VERSION = '0.3.3';
 
             var _this = this;
 
