@@ -15,9 +15,9 @@
         html, body {
             margin: 0;
             width: 100%;
-            background: #FbFbFb;
+            background: #FBFBFB;
             color: #222;
-            font-family: "Helvetica Medium", Arial, Verdana, sans;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-weight: 300;
             font-size: 1em;
             line-height: 1.5em;
@@ -45,7 +45,7 @@
             color: #C41617;
         }
         .lowlight {
-            color: #20717d;
+            color: #20717D;
         }
         .strong {
             font-weight: 700;
@@ -66,7 +66,7 @@
 
         .intro {
             margin-bottom: 84px;
-            font-size: 2em;
+            font-size: 18px;
             line-height: 1.5em;
         }
 
@@ -86,9 +86,8 @@
             margin: 0 auto;
             min-height: 30px;
             vertical-align: middle;
-            border-bottom: 1px solid #FBFBFB;
-            background-color: #FCFCFC;
-            background-color: rgba(0, 0, 0, 0.05);
+            background: #F4F4F4;
+            background: rgba(0, 0, 0, 0.03);
         }
 
         .table tr:last-child {
@@ -97,7 +96,8 @@
 
         .table th:nth-child(2n+2),
         .table tr:nth-child(2n+2) {
-            background-color: rgba(0, 0, 0, 0.02);
+            background: #F9F9F9;
+            background: rgba(0, 0, 0, 0.01);
         }
 
         .table td:nth-child(2n+2) {
@@ -105,7 +105,8 @@
         }
 
         .table td {
-            padding: 21px 20px 18px 20px;
+            padding: 15px 30px;
+            border-bottom: 1px solid #FFFFFF;
         }
         .td-result {
             text-align: right;
@@ -114,20 +115,22 @@
         }
 
         h3 {
-            font-size: 1.2em;
-            margin: 42px 0 15px 0;
+            font-size: 18pt;
+            font-weight: 200;
+            letter-spacing: .8pt;
+            margin: 40px 0 12px 0;
             color: #C41617;
         }
         .message {
             position: relative;
             display: block;
-            padding: 21px 20px 18px 20px;
+            padding: 10px 30px;
             margin: 0 auto 30px auto;
             min-height: 30px;
             vertical-align: middle;
             font-size: 1em;
-            background-color: #FCFCFC;
-            background-color: rgba(0, 0, 0, 0.05);
+            background: #F4F4F4;
+            background: rgba(0, 0, 0, 0.03);
         }
         .message_copy {
             padding: 20px;
@@ -167,6 +170,15 @@
             font-size: 0.5em;
         }
 
+        #api-notes {
+            border-top: 1px solid #EEE;
+            padding-bottom: 20px;
+        }
+
+        #note-on-accuracy {
+            border-top: 1px solid #EEE;
+        }
+
         @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
             only screen and (-moz-min-device-pixel-ratio: 1.5),
             only screen and (-o-min-device-pixel-ratio: 3/2),
@@ -174,13 +186,6 @@
                 .logo {
                     background-image: url('../handcrafted-digital-london-logo@2x.png');
                 }
-        }
-
-        @media screen and (max-width: 640px) {
-            .intro {
-                font-size: 1.5em;
-                line-height: 1.5em;
-            }
         }
     </style>
   </head>
