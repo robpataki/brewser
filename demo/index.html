@@ -39,14 +39,30 @@
 
         a {
             text-decoration: none;
-            color: #C41617;
+            color: #711945;
+
+            -webkit-transition-property: color;
+            -moz-transition-property: color;
+            -ms-transition-property: color;
+            -o-transition-property: color;
+            transition-property: color;
+
+            -webkit-transition-duration: 0.3s;
+            -moz-transition-duration: 0.3s;
+            -ms-transition-duration: 0.3s;
+            -o-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+        }
+
+        a:hover {
+            color: #BD3F84;
         }
 
         .highlight {
-            color: #C41617;
+            color: #52AE32;
         }
         .lowlight {
-            color: #20717D;
+            color: #BD3F84;
         }
         .strong {
             font-weight: 700;
@@ -56,7 +72,7 @@
         .wrapper {
             width: 100%;
             min-width: 18.75em;
-            padding-top: 5.25em;
+            padding-top: 3em;
         }
 
         .content {
@@ -121,7 +137,7 @@
             font-weight: 200;
             letter-spacing: .8pt;
             margin: 2.5em 0 0.75em 0;
-            color: #C41617;
+            color: #52AE32;
         }
         .message {
             position: relative;
@@ -192,7 +208,7 @@
             top: 0;
             right: 0.5em;
             font-size: 0.5em;
-            background: #C41617;
+            background: #711945;
             color: #FFF;
             line-height: 0.625em;
             padding: 1.5em 0.75em 1em 0.75em;
@@ -250,14 +266,14 @@
   <body>    
 
     <div class="wrapper">    
-        <div id="version"></div>    
-        <div class="content">
-            <div id="intro" class="intro">
-                <span class="banner">
+        <div id="version"></div>
+        <span class="banner">
                     <span class="logo logo-brewser">
                         <img src="../brewser-logo.png" data-src-2x="../brewser-logo@2x.png" />
                     </span>
                 </span>
+        <div class="content">
+            <div id="intro" class="intro">
                 <p>
                     <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">Brewser.js</a> is a simple open source device and browser detection library. This page demonstrates how the API<a href="#api-notes">*</a> gives you access to fairly accurate<a href="#note-on-accuracy">**</a> device info and browser capabilities.
                 </p>
@@ -509,8 +525,8 @@
                             </span>
                         </a>
                         <span>
-                            Copyright &copy; 2015 <a href="https://github.com/handcraftedLDN/brewser" target="_blank">brewser.js</a> has been
-                            <a href="http://handcrafteddigital.london" target="_blank">Handcrafted</a>
+                            Copyright &copy; 2015 <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">brewser.js</a> has been
+                            <a class="strong" href="http://handcrafteddigital.london" target="_blank">Handcrafted</a>
                         </span>
                     </p>
                 </div>
