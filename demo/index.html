@@ -156,17 +156,35 @@
             display: block;
         }
 
+        .banner {
+            display: block;
+            text-align: center;
+            padding-bottom: 2em;
+            margin-bottom: 4em;
+            border-bottom: 1px solid #EEE;
+        }
+
         .logo {
-            width: 218px;
-            height: 90px;
+            display: inline-block;
             margin: 0 auto;
         }
+
         .logo img {
             border: none;
             outline: none;
             margin: 0;
             width: 100%;
             height: auto;
+        }
+
+        .logo-brewser {
+            width: 120px;
+            height: 98px;
+        }
+
+        .logo-hc {
+            width: 218px;
+            height: 90px;
         }
 
         #version {
@@ -217,9 +235,14 @@
                 line-height: 1.5em;
             }
 
-            .logo {
+            .logo-hc {
                 width: 140px;
                 height: 58px;
+            }
+
+            .logo-brewser {
+                width: 80px;
+                height: 65px;
             }
         }
     </style>
@@ -230,6 +253,11 @@
         <div id="version"></div>    
         <div class="content">
             <div id="intro" class="intro">
+                <span class="banner">
+                    <span class="logo logo-brewser">
+                        <img src="../brewser-logo.png" data-src-2x="../brewser-logo@2x.png" />
+                    </span>
+                </span>
                 <p>
                     <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">Brewser.js</a> is a simple open source device and browser detection library. This page demonstrates how the API<a href="#api-notes">*</a> gives you access to fairly accurate<a href="#note-on-accuracy">**</a> device info and browser capabilities.
                 </p>
@@ -476,7 +504,7 @@
                 <div class="branding">
                     <p>
                         <a href="http://handcrafteddigital.london" target="_blank">
-                            <span class="logo">
+                            <span class="logo logo-hc">
                                 <img src="../handcrafted-digital-london-logo.png" data-src-2x="../handcrafted-digital-london-logo@2x.png" alt="Handcrafted Digital London logo"/>
                             </span>
                         </a>
@@ -559,7 +587,10 @@
             $(window).resize();
 
             if(BREWSER.resolution > 1) {
-                $('.logo img').attr('src', $('.logo img').attr('data-src-2x'));
+                $('.logo img').each(function(index, img){
+                    var $img = $(img);
+                    $img.attr('src', $img.attr('data-src-2x'));
+                });
             }
         });
     </script>
