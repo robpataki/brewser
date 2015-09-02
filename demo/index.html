@@ -17,9 +17,10 @@
             width: 100%;
             background: #FBFBFB;
             color: #222;
+        }
+        body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-weight: 300;
-            font-size: 1em;
             line-height: 1.5em;
         }
         table {
@@ -54,26 +55,26 @@
 
         .wrapper {
             width: 100%;
-            min-width: 300px;
-            padding-top: 84px;
+            min-width: 18.75em;
+            padding-top: 5.25em;
         }
 
         .content {
-            max-width: 810px;
+            max-width: 50.625em;
             margin: 0 auto;
-            padding: 0 45px 10px 45px;
+            padding: 0 2.8125em 0.625em 2.8125em;
         }
 
         .intro {
-            margin-bottom: 84px;
-            font-size: 18px;
+            margin-bottom: 5.25em;
+            font-size: 1.125em;
             line-height: 1.5em;
         }
 
         .table {
             border: 0;
             padding: 0;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 1.875em auto;
             width: 100%;
             font-size: 1em;
         }
@@ -105,48 +106,48 @@
         }
 
         .table td {
-            padding: 15px 30px;
+            padding: 0.9375em 1.875em;
             border-bottom: 1px solid #FFFFFF;
+            line-height: 1.5em;
         }
         .td-result {
             text-align: right;
-            padding-right: 20px;
+            padding-right: 1.25em;
             text-transform: lowercase;
         }
 
         h3 {
-            font-size: 18pt;
+            font-size: 1.5em;
             font-weight: 200;
             letter-spacing: .8pt;
-            margin: 40px 0 12px 0;
+            margin: 2.5em 0 0.75em 0;
             color: #C41617;
         }
         .message {
             position: relative;
             display: block;
-            padding: 10px 30px;
-            margin: 0 auto 30px auto;
-            min-height: 30px;
+            padding: 0.625em 1.875em;
+            margin: 0 auto 1.875em auto;
+            min-height: 1.875em;
             vertical-align: middle;
-            font-size: 1em;
             background: #F4F4F4;
             background: rgba(0, 0, 0, 0.03);
         }
         .message_copy {
-            padding: 20px;
-            line-height: 140%;
+            padding: 1.25em;
+            line-height: 1.4em;
         }
 
         .notes {
-            margin-top: 84px;
+            margin-top: 5.25em;
         }
 
         .branding {
             text-align: center;
-            line-height: 17px;
+            line-height: 1.5em;
             font-size: 0.75em;
-            margin-top: 84px;
-            padding-bottom: 42px;
+            margin-top: 5.25em;
+            padding-bottom: 2.625em;
         }
         .branding a {
             display: inline-block;
@@ -171,21 +172,55 @@
         #version {
             position: fixed;
             top: 0;
-            right: 4px;
+            right: 0.5em;
             font-size: 0.5em;
             background: #C41617;
             color: #FFF;
-            line-height: 10px;
-            padding: 10px 6px 4px 6px;
+            line-height: 0.625em;
+            padding: 1.5em 0.75em 1em 0.75em;
         }
 
         #api-notes {
             border-top: 1px solid #EEE;
-            padding-bottom: 20px;
+            padding-bottom: 1.25em;
         }
 
         #note-on-accuracy {
             border-top: 1px solid #EEE;
+        }
+
+        @media screen and (max-width: 25em) {
+            body {
+                font-size: 0.75em;
+            }
+
+            #version {
+                position: absolute;
+            }
+        }
+
+        @media screen and (max-width: 17.5em) {
+            body {
+                font-size: 0.6em;
+            }
+
+            .list {
+                padding-left: 1.5em;
+            }
+            .message,
+            .table td {
+                padding: 1em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+                line-height: 1.5em;
+            }
+
+            .logo {
+                width: 140px;
+                height: 58px;
+            }
         }
     </style>
   </head>
@@ -409,13 +444,13 @@
                     <h3><span class="highlight">*</span>API notes</h3>
                     <p>Using the API is pretty straightforward - simply use the syntax shown in the tables above.</p>
                     <p class="strong">The API groups test results for better accessibility:</p>
-                    <ul>
+                    <ul class="list">
                         <li><span class="lowlight">BREWSER.has</span> stores all browser capability results;</li>
                         <li><span class="lowlight">BREWSER.device</span> has all device related info;</li>
                         <li><span class="lowlight">BREWSER.browser</span> groups all browser tests.</li>
                     </ul>
                     <p class="strong">A few quick examples:</p>
-                    <ul>
+                    <ul class="list">
                         <li><span class="lowlight">BREWSER.UA</span> gives you the <span class="strong">User Agent String</span>;</li>
                         <li><span class="lowlight">BREWSER.ua</span> gives you the lowercased <span class="strong">User Agent String</span>;</li>
                         <li><span class="lowlight">BREWSER.resolution</span> returns <span class="strong">window.devicePixelRatio</span></li>
@@ -424,7 +459,7 @@
                         <li><span class="lowlight">BREWSER.has.webGL</span> returns true if the browser supports <span class="strong">3D canvas</span>.</li>
                     </ul>
                     <p class="strong">Examples of combining simple tests:</p>
-                    <ul>
+                    <ul class="list">
                         <li><span class="lowlight">BREWSER.device.desktop &amp;&amp; BREWSER.device.touch</span> detects laptops with touch support;</li>
                         <li><span class="lowlight">!BREWSER.device.desktop &amp;&amp; BREWSER.device.orientation.portrait</span> to see if the phone/tablet is in portrait mode;</li>
                     </ul>
