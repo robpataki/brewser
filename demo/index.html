@@ -159,8 +159,13 @@
             width: 218px;
             height: 90px;
             margin: 0 auto;
-            background: url('../handcrafted-digital-london-logo.png') 0 0 no-repeat;
-            background-size: 218px 90px;
+        }
+        .logo img {
+            border: none;
+            outline: none;
+            margin: 0;
+            width: 100%;
+            height: auto;
         }
 
         #version {
@@ -177,15 +182,6 @@
 
         #note-on-accuracy {
             border-top: 1px solid #EEE;
-        }
-
-        @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
-            only screen and (-moz-min-device-pixel-ratio: 1.5),
-            only screen and (-o-min-device-pixel-ratio: 3/2),
-            only screen and (min-device-pixel-ratio: 1.5) {
-                .logo {
-                    background-image: url('../handcrafted-digital-london-logo@2x.png');
-                }
         }
     </style>
   </head>
@@ -441,7 +437,9 @@
                 <div class="branding">
                     <p>
                         <a href="http://handcrafteddigital.london" target="_blank">
-                            <span class="logo"></span>
+                            <span class="logo">
+                                <img src="../handcrafted-digital-london-logo.png" data-src-2x="../handcrafted-digital-london-logo@2x.png" alt="Handcrafted Digital London logo"/>
+                            </span>
                         </a>
                         <span>
                             Copyright &copy; 2015 <a href="https://github.com/handcraftedLDN/brewser" target="_blank">brewser.js</a> has been
@@ -520,6 +518,10 @@
                 _this.els.$device.find('td:eq(13)').html(BREWSER.device.orientation.landscape.toString());
             });
             $(window).resize();
+
+            if(BREWSER.resolution > 1) {
+                $('.logo img').attr('src', $('.logo img').attr('data-src-2x'));
+            }
         });
     </script>
   </body>
