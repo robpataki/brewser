@@ -10,6 +10,25 @@
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     
     <style type="text/css">
         html, body {
@@ -39,14 +58,30 @@
 
         a {
             text-decoration: none;
-            color: #C41617;
+            color: #711945;
+
+            -webkit-transition-property: color;
+            -moz-transition-property: color;
+            -ms-transition-property: color;
+            -o-transition-property: color;
+            transition-property: color;
+
+            -webkit-transition-duration: 0.3s;
+            -moz-transition-duration: 0.3s;
+            -ms-transition-duration: 0.3s;
+            -o-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+        }
+
+        a:hover {
+            color: #BD3F84;
         }
 
         .highlight {
-            color: #C41617;
+            color: #52AE32;
         }
         .lowlight {
-            color: #20717D;
+            color: #BD3F84;
         }
         .strong {
             font-weight: 700;
@@ -56,7 +91,7 @@
         .wrapper {
             width: 100%;
             min-width: 18.75em;
-            padding-top: 5.25em;
+            padding-top: 3em;
         }
 
         .content {
@@ -121,7 +156,7 @@
             font-weight: 200;
             letter-spacing: .8pt;
             margin: 2.5em 0 0.75em 0;
-            color: #C41617;
+            color: #52AE32;
         }
         .message {
             position: relative;
@@ -156,11 +191,19 @@
             display: block;
         }
 
+        .banner {
+            display: block;
+            text-align: center;
+            padding-bottom: 2em;
+            margin-bottom: 4em;
+            border-bottom: 1px solid #EEE;
+        }
+
         .logo {
-            width: 218px;
-            height: 90px;
+            display: inline-block;
             margin: 0 auto;
         }
+
         .logo img {
             border: none;
             outline: none;
@@ -169,12 +212,22 @@
             height: auto;
         }
 
+        .logo-brewser {
+            width: 120px;
+            height: 98px;
+        }
+
+        .logo-hc {
+            width: 218px;
+            height: 90px;
+        }
+
         #version {
             position: fixed;
             top: 0;
             right: 0.5em;
             font-size: 0.5em;
-            background: #C41617;
+            background: #711945;
             color: #FFF;
             line-height: 0.625em;
             padding: 1.5em 0.75em 1em 0.75em;
@@ -217,9 +270,14 @@
                 line-height: 1.5em;
             }
 
-            .logo {
+            .logo-hc {
                 width: 140px;
                 height: 58px;
+            }
+
+            .logo-brewser {
+                width: 80px;
+                height: 65px;
             }
         }
     </style>
@@ -227,7 +285,12 @@
   <body>    
 
     <div class="wrapper">    
-        <div id="version"></div>    
+        <div id="version"></div>
+        <span class="banner">
+                    <span class="logo logo-brewser">
+                        <img src="brewser-logo.png" data-src-2x="brewser-logo@2x.png" />
+                    </span>
+                </span>
         <div class="content">
             <div id="intro" class="intro">
                 <p>
@@ -476,13 +539,13 @@
                 <div class="branding">
                     <p>
                         <a href="http://handcrafteddigital.london" target="_blank">
-                            <span class="logo">
+                            <span class="logo logo-hc">
                                 <img src="handcrafted-digital-london-logo.png" data-src-2x="handcrafted-digital-london-logo@2x.png" alt="Handcrafted Digital London logo"/>
                             </span>
                         </a>
                         <span>
-                            Copyright &copy; 2015 <a href="https://github.com/handcraftedLDN/brewser" target="_blank">brewser.js</a> has been
-                            <a href="http://handcrafteddigital.london" target="_blank">Handcrafted</a>
+                            Copyright &copy; 2015 <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">brewser.js</a> has been
+                            <a class="strong" href="http://handcrafteddigital.london" target="_blank">Handcrafted</a>
                         </span>
                     </p>
                 </div>
@@ -559,7 +622,10 @@
             $(window).resize();
 
             if(BREWSER.resolution > 1) {
-                $('.logo img').attr('src', $('.logo img').attr('data-src-2x'));
+                $('.logo img').each(function(index, img){
+                    var $img = $(img);
+                    $img.attr('src', $img.attr('data-src-2x'));
+                });
             }
         });
 
