@@ -270,7 +270,7 @@
             display: inline-block;
         }
 
-        .social-buttons .button:not(:last-child) {
+        .button:not(:last-child) {
             margin-right: 12px;
         }
 
@@ -281,6 +281,7 @@
             border-radius: 100%;
             cursor: pointer;
             border: 3px solid #FBFBFB;
+            margin-bottom: 12px;
 
             -webkit-transition-property: background-color;
             -moz-transition-property: background-color;
@@ -357,11 +358,19 @@
 
         @media screen and (max-width: 25em) {
             body {
-                font-size: 0.75em;
+                font-size: 0.9em;
             }
 
             #version {
                 position: absolute;
+            }
+
+            .social-buttons {
+                max-width: 220px;
+            }
+
+            .button:nth-child(2n+2) {
+                margin-right: 0;
             }
         }
 
@@ -664,7 +673,7 @@
                     <h3>Let's be friends</h3>
                     <ul class="social-buttons">
                         <li class="button button-github"><a href="https://github.com/handcraftedLDN/brewser" target="_blank"><span class="icon"></span></a></li>
-                        <li class="button button-twitter"><a href="#"><span class="icon"></span></a></li>
+                        <li class="button button-twitter"><a href="https://twitter.com/intent/tweet?text=brewser.js - Slick device %26 browser detection:&url=http%3A%2F%2Fhandcraftedldn.github.io%2Fbrewser%2F&hashtags=brewser,javascript,device,browser,detection&via=handcraftedLDN"><span class="icon"></span></a></li>
                         <li class="button button-google"><a href="#"><span class="icon"></span></a></li>
                         <li class="button button-facebook"><a href="#"><span class="icon"></span></a></li>
                     </ul>
@@ -774,5 +783,6 @@
         ga('create', 'UA-57518385-2', 'auto');
         ga('send', 'pageview');
     </script>
+    <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
   </body>
 </html>
