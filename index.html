@@ -111,7 +111,7 @@
         .content {
             max-width: 50.625em;
             margin: 0 auto;
-            padding: 0 2.8125em 0.625em 2.8125em;
+            padding: 0 2.8125em 4em 2.8125em;
         }
 
         .intro {
@@ -195,7 +195,7 @@
             text-align: center;
             line-height: 1.5em;
             font-size: 0.75em;
-            margin-top: 5.25em;
+            margin-top: 2em;
             padding-bottom: 2.625em;
         }
         .branding a {
@@ -208,7 +208,7 @@
         .banner {
             display: block;
             text-align: center;
-            padding-bottom: 2em;
+            padding-bottom: 3em;
             margin-bottom: 4em;
             border-bottom: 1px solid #EEE;
         }
@@ -247,12 +247,111 @@
             padding: 1.5em 0.75em 1em 0.75em;
         }
 
-        #api-notes {
-            border-top: 1px solid #EEE;
+        #api-notes,
+        #note-on-accuracy {
+            border-top: 1px dashed #EEE;
             padding-bottom: 1.25em;
         }
 
-        #note-on-accuracy {
+        #social-sharing {
+            border-top: 1px dashed #EEE;
+        }
+
+        .social-buttons {
+            list-style: none;
+            display: block;
+            margin: 0 auto;
+            padding: 0;
+            padding-top: 3em;
+            text-align: center;
+        }
+
+        .social-buttons .button {
+            display: inline-block;
+        }
+
+        .social-buttons .button:not(:last-child) {
+            margin-right: 12px;
+        }
+
+        .button {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            cursor: pointer;
+            border: 3px solid #FBFBFB;
+
+            -webkit-transition-property: background-color;
+            -moz-transition-property: background-color;
+            -ms-transition-property: background-color;
+            -o-transition-property: background-color;
+            transition-property: background-color;
+
+            -webkit-transition-duration: 0.2s;
+            -moz-transition-duration: 0.3s;
+            -ms-transition-duration: 0.3s;
+            -o-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+        }
+
+        .button a {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .button .icon {
+            width: 100%;
+            height: 100%;
+            background: red;
+            display: block;
+            position: absolute;
+            background: url("social-icons.png") 0 0 no-repeat;
+            background-position: -10px -10px;
+        }
+
+        .button-facebook {
+            background-color: #5e8aaf;
+        }
+        .button-facebook:hover {
+            background-color: #165890;
+        }
+        .button-facebook .icon {
+            background-position: -70px -10px;
+        }
+
+        .button-twitter {
+            background-color: #6cd4fc;
+        }
+        .button-twitter:hover {
+            background-color: #1EC2FF;
+        }
+
+        .button-github {
+            background-color: #7c7c7c;
+        }
+        .button-github:hover {
+            background-color: #444;
+        }
+        .button-github .icon {
+            background-position: -130px -10px;
+        }
+
+        .button-google {
+            background-color: #df7a73;
+        }
+        .button-google:hover {
+            background-color: #d24238;
+        }
+        .button-google .icon {
+            background-position: -190px -10px;
+        }
+
+        .footer {
             border-top: 1px solid #EEE;
         }
 
@@ -294,6 +393,19 @@
                 height: 65px;
             }
         }
+
+        @media
+            only screen and (-webkit-min-device-pixel-ratio: 2),
+            only screen and (   min--moz-device-pixel-ratio: 2),
+            only screen and (     -o-min-device-pixel-ratio: 2/1),
+            only screen and (        min-device-pixel-ratio: 2),
+            only screen and (                min-resolution: 192dpi),
+            only screen and (                min-resolution: 2dppx) {
+                .button .icon {
+                    background-image: url("social-icons@2x.png");
+                    background-size: 256px 256px;
+                }
+            }
     </style>
   </head>
   <body>    
@@ -545,24 +657,34 @@
 
                 <div id="note-on-accuracy" class="smallprint">
                     <h3><span class="highlight">**</span>A quick note on accuracy</h3>
-                    <p>Browser capability detection is pretty simple, but as you probably know device detection is a bit of a pain. <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">brewser.js</a> sniffs the User Agent string to detect certain device types and operating systems. That is to give you as much useful information as possible to distinguish between key device and OS types. As we know this can be tricky and inaccurate in most cases, please <span class="strong">#handlewithcare</span>.</p>
+                    <p>Browser capability detection is pretty simple, but as you probably know device detection is a bit of a pain. <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">brewser.js</a> sniffs the User Agent string to detect certain device types and operating systems. That is to give you as much useful information as possible to distinguish between key device and OS types. As we know this can be tricky and inaccurate in most cases, please handle with care.</p>
+                </div>
+
+                <div id="social-sharing" class="social">
+                    <h3>Let's be friends</h3>
+                    <ul class="social-buttons">
+                        <li class="button button-github"><a href="https://github.com/handcraftedLDN/brewser" target="_blank"><span class="icon"></span></a></li>
+                        <li class="button button-twitter"><a href="#"><span class="icon"></span></a></li>
+                        <li class="button button-google"><a href="#"><span class="icon"></span></a></li>
+                        <li class="button button-facebook"><a href="#"><span class="icon"></span></a></li>
+                    </ul>
                 </div>
             </div>
+        </div>
 
-            <div class="footer">
-                <div class="branding">
-                    <p>
-                        <a href="http://handcrafteddigital.london" target="_blank">
-                            <span class="logo logo-hc">
-                                <img src="handcrafted-digital-london-logo.png" data-src-2x="handcrafted-digital-london-logo@2x.png" alt="Handcrafted Digital London logo"/>
-                            </span>
-                        </a>
-                        <span>
-                            Copyright &copy; 2015 <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">brewser.js</a> has been
-                            <a class="strong" href="http://handcrafteddigital.london" target="_blank">Handcrafted</a>
+        <div class="footer">
+            <div class="branding">
+                <p>
+                    <a href="http://handcrafteddigital.london" target="_blank">
+                        <span class="logo logo-hc">
+                            <img src="handcrafted-digital-london-logo.png" data-src-2x="handcrafted-digital-london-logo@2x.png" alt="Handcrafted Digital London logo"/>
                         </span>
-                    </p>
-                </div>
+                    </a>
+                    <span>
+                        Copyright &copy; 2015 <a href="https://github.com/handcraftedLDN/brewser" target="_blank" class="strong">brewser.js</a> has been
+                        <a class="strong" href="http://handcrafteddigital.london" target="_blank">Handcrafted</a>
+                    </span>
+                </p>
             </div>
         </div>
     </div>
