@@ -680,7 +680,7 @@
                         <li class="button button-github"><a href="https://github.com/handcraftedLDN/brewser" target="_blank"><span class="icon"></span></a></li>
                         <li class="button button-twitter"><a href="https://twitter.com/intent/tweet?text=brewser.js - Slick device %26 browser detection:&url=http%3A%2F%2Fhandcraftedldn.github.io%2Fbrewser%2F&hashtags=brewser,javascript,device,browser,detection&via=handcraftedLDN"><span class="icon"></span></a></li>
                         <li class="button button-google"><a href="#"><span class="icon"></span></a></li>
-                        <li class="button button-facebook"><a href="#"><span class="icon"></span></a></li>
+                        <li class="button button-facebook"><a href="javascript:fbShare('http%3A%2F%2Fhandcraftedldn.github.io%2Fbrewser%2F', 'Share on Facebook', 'Facebook share popup', 'http://handcraftedLDN.github.io/brewser/brewser-sharing.png', 520, 350)"><span class="icon"></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -787,6 +787,12 @@
 
         ga('create', 'UA-57518385-2', 'auto');
         ga('send', 'pageview');
+
+        function fbShare(url, title, descr, image, winWidth, winHeight) {
+            var winTop = (screen.height / 2) - (winHeight / 2);
+            var winLeft = (screen.width / 2) - (winWidth / 2);
+            window.open('http://www.facebook.com/sharer.php?m2w&s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+        }
     </script>
     <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
   </body>
