@@ -678,8 +678,11 @@
                     <h3>Let's be friends</h3>
                     <ul class="social-buttons">
                         <li class="button button-github"><a href="https://github.com/handcraftedLDN/brewser" target="_blank"><span class="icon"></span></a></li>
-                        <li class="button button-twitter"><a href="https://twitter.com/intent/tweet?text=brewser.js - Slick device %26 browser detection:&url=http%3A%2F%2Fhandcraftedldn.github.io%2Fbrewser%2F&hashtags=brewser,javascript,device,browser,detection&via=handcraftedLDN"><span class="icon"></span></a></li>
-                        <li class="button button-google"><a href="#"><span class="icon"></span></a></li>
+                        
+                        <li class="button button-twitter"><a href="https://twitter.com/intent/tweet?text=brewser.js - Slick device %26 browser detection:&url=http%3A%2F%2Fhandcraftedldn.github.io%2Fbrewser%2F&hashtags=brewser,javascript,device,browser,detection&via=handcraftedLDN" target="_blank"><span class="icon"></span></a></li>
+                        
+                        <li class="button button-google"><a href="javascript:gpShare('http%3A%2F%2Fhandcraftedldn.github.io%2Fbrewser%2F', 'Share on Google Plus', 520, 350)"><span class="icon"></span></a></li>
+                        
                         <li class="button button-facebook"><a href="javascript:fbShare('http%3A%2F%2Fhandcraftedldn.github.io%2Fbrewser%2F', 'Share on Facebook', 'Facebook share popup', 'http://handcraftedLDN.github.io/brewser/brewser-sharing.png', 520, 350)"><span class="icon"></span></a></li>
                     </ul>
                 </div>
@@ -791,7 +794,17 @@
         function fbShare(url, title, descr, image, winWidth, winHeight) {
             var winTop = (screen.height / 2) - (winHeight / 2);
             var winLeft = (screen.width / 2) - (winWidth / 2);
-            window.open('http://www.facebook.com/sharer.php?m2w&s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+            var windowOptions = 'width=' + winWidth + ',height=' + winHeight + ',top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0';
+            
+            window.open('http://www.facebook.com/sharer.php?m2w&s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer',windowOptions);
+        }
+
+        function gpShare(url, title, winWidth, winHeight) {
+            var winTop = (screen.height / 2) - (winHeight / 2);
+            var winLeft = (screen.width / 2) - (winWidth / 2);
+            var windowOptions = 'width=' + winWidth + ',height=' + winHeight + ',top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0';
+            
+            window.open('https://plus.google.com/share?url=' + url, 'sharer', windowOptions);
         }
     </script>
     <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
