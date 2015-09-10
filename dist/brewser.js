@@ -10,7 +10,7 @@
         _init: function() {
 
             // Version bumped by Gulp, don't touch
-            this.VERSION = '0.3.8';
+            this.VERSION = '0.3.9';
 
             var _this = this;
 
@@ -114,7 +114,7 @@
                 _this.screenHeight = window.screen.height;
                 _this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
                 _this.windowHeight = window.innerHeight || document.documentElement.clientHeight;
-                _this.resolution = window.devicePixelRatio || 1;
+                _this.resolution = Number(window.devicePixelRatio.toFixed(3)) || 1;
 
                 _this.device.orientation.portrait = false;
                 _this.device.orientation.landscape = false;
@@ -183,7 +183,7 @@
 ////////
 
             function _isBrowserIE() {
-                return  /(windows nt|msie)/g.test(ua);
+                return  /(windows nt|msie|iemobile|ie)/g.test(ua);
             }
             
             function _isBrowserFirefox() {
@@ -258,7 +258,7 @@
                     return _this.NOT_AVAILABLE;
                 }
                 
-                return chunk;
+                return chunk.toString().replace(';', '');
             }
 
             function _detectBrowser() {
@@ -298,8 +298,8 @@
                     _this.browser.safari = true;
                 } else if (_isBrowserIE()) {
                     type = _this.BROWSERS.ie;
-                    version = _getBrowserVersion('msie', 'short');
-                    fullVersion = _getBrowserVersion('msie');
+                    version = _getBrowserVersion('msie|iemobile', 'short');
+                    fullVersion = _getBrowserVersion('msie|iemobile');
                     _this.browser.ie = true;
                 } else {
                     type = _this.BROWSERS.other;
