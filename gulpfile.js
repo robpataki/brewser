@@ -2,10 +2,10 @@
 var gulp            = require('gulp'),
     del             = require('del'),
     jsonTransform   = require('gulp-json-transform'),
-    jshint          = require('gulp-jshint'),
     uglify          = require('gulp-uglify'),
     rename          = require('gulp-rename'),
     replace         = require('gulp-replace'),
+    xo              = require('gulp-xo'),
     versionConfig   = require('./version.json'),
     npmConfig       = require('./package.json'),
     bowerConfig     = require('./bower.json');
@@ -13,13 +13,6 @@ var gulp            = require('gulp'),
 // configure which files to watch and what tasks to use on file changes
 gulp.task('watch', function() {
     gulp.watch('src/*.js', ['jshint']);
-});
-
-// configure the jshint task
-gulp.task('jshint', function() {
-    return  gulp.src('src/*.js')
-            .pipe(jshint())
-            .pipe(jshint.reporter('jshint-stylish'));
 });
 
 // Clean the dist directory
@@ -30,8 +23,9 @@ gulp.task('clean:dist', function(cb) {
 });
 
 // configure the build task
-gulp.task('build', ['jshint', 'clean:dist'], function(cb) {
+gulp.task('build', ['clean:dist'], function(cb) {
     return gulp.src('src/brewser.js')
+        .pipe(xo())
         .pipe(gulp.dest('dist'));
 });
 
