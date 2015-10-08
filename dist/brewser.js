@@ -10,7 +10,7 @@
         _init: function() {
 
             // Version bumped by Gulp, don't touch
-            this.VERSION = '0.4.0';
+            this.VERSION = '0.4.1';
 
             var _this = this;
 
@@ -19,11 +19,6 @@
             }
             _this._exists = true;
 
-            if(typeof console !== 'undefined') {
-                console.log(' %c Hello BREWSER! v' + _this.VERSION + ' ' , 'background: #52AE32; color: #FFFFFF; line-height: 21px; font-size: 12px; padding: 4px 0; margin-bottom: 14px;');
-            }
-
-            
             _this.UA = window.navigator.userAgent;
             _this.ua = _this.UA.toLowerCase();
             var ua = _this.ua;
@@ -67,7 +62,7 @@
                 os: _this.NOT_AVAILABLE,
                 orientation: {
                     landscape: _this.NOT_AVAILABLE,
-                    portrait: _this.NOT_AVAILABLE 
+                    portrait: _this.NOT_AVAILABLE
                 },
                 screenWidth: _this.NOT_AVAILABLE,
                 screenHeight: _this.NOT_AVAILABLE,
@@ -81,13 +76,13 @@
                 ios: _this.NOT_AVAILABLE
             };
 
-            _this.has = {                
+            _this.has = {
                 rAF: _this.NOT_AVAILABLE,
                 canvas2d: _this.NOT_AVAILABLE,
                 webGL: _this.NOT_AVAILABLE,
                 cssTransform: _this.NOT_AVAILABLE,
                 mediaQueries: _this.NOT_AVAILABLE,
-                
+
                 getUserMedia: _this.NOT_AVAILABLE,
 
                 audio: _this.NOT_AVAILABLE,
@@ -99,7 +94,7 @@
                     aac: _this.NOT_AVAILABLE
                 },
                 webAudio: _this.NOT_AVAILABLE,
-                
+
                 video: _this.NOT_AVAILABLE,
                 videoFormats: {
                     mp4: _this.NOT_AVAILABLE,
@@ -163,7 +158,7 @@
 
             function _detectOS() {
                 var type = _this.NOT_AVAILABLE;
-                
+
                 if(_isOSWin()) {
                     type = 'Windows';
                 } else if(_isOSiOS()) {
@@ -185,19 +180,19 @@
             function _isBrowserIE() {
                 return  /(windows nt|msie|iemobile|ie)/g.test(ua);
             }
-            
+
             function _isBrowserFirefox() {
                 return ua.indexOf('firefox') > -1;
             }
-            
+
             function _isBrowserOpera() {
                 return /(opera|opr)/g.test(ua);
             }
-            
+
             function _isBrowserSafari() {
                 return ua.indexOf('safari') > -1 && !_isBrowserOpera() && !_isBrowserChrome() && !_isOSAndroid();
             }
-            
+
             function _isBrowserChrome() {
                 return (ua.indexOf('chrome') > -1 || ua.indexOf('crios') > -1) && !_isBrowserOpera();
             }
@@ -257,7 +252,7 @@
                 if(typeof chunk === 'undefined') {
                     return _this.NOT_AVAILABLE;
                 }
-                
+
                 return chunk.toString().replace(';', '');
             }
 
@@ -333,16 +328,16 @@
             }
 
             function _hasCSSTransform() {
-                return !!(('getComputedStyle' in window) && 
+                return !!(('getComputedStyle' in window) &&
                             (window.getComputedStyle(document.body).getPropertyValue('-webkit-transform') ||
-                            window.getComputedStyle(document.body).getPropertyValue('-o-transform') || 
-                            window.getComputedStyle(document.body).getPropertyValue('-moz-transform') || 
-                            window.getComputedStyle(document.body).getPropertyValue('-ms-transform') || 
+                            window.getComputedStyle(document.body).getPropertyValue('-o-transform') ||
+                            window.getComputedStyle(document.body).getPropertyValue('-moz-transform') ||
+                            window.getComputedStyle(document.body).getPropertyValue('-ms-transform') ||
                             window.getComputedStyle(document.body).getPropertyValue('transform')
                         ));
             }
 
-            
+
 
             function _hasMediaQueries() {
                 return !!window.matchMedia;
@@ -428,7 +423,7 @@
                 _this.has.cssTransform = _hasCSSTransform();
                 _this.has.mediaQueries = _hasMediaQueries();
                 _this.has.getUserMedia = _hasGetUserMedia();
-                
+
                 _detectCanvas();
                 _detectAudio();
                 _detectVideo();
