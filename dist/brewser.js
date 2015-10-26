@@ -10,7 +10,7 @@
         _init: function() {
 
             // Version bumped by Gulp, don't touch
-            this.VERSION = '0.4.1';
+            this.VERSION = '0.4.2';
 
             var _this = this;
 
@@ -105,14 +105,31 @@
 
 
             function _detectDevice() {
+                _this.device.touch = _hasTouch();
+
+                _this.device.orientation.portrait = false;
+                _this.device.orientation.landscape = false;
+
+                _this.resolution = Number(window.devicePixelRatio.toFixed(3)) || 1;
                 _this.screenWidth = window.screen.width;
                 _this.screenHeight = window.screen.height;
                 _this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
                 _this.windowHeight = window.innerHeight || document.documentElement.clientHeight;
-                _this.resolution = Number(window.devicePixelRatio.toFixed(3)) || 1;
+                
+                var deviceWidth = _this.screenWidth;
+                var deviceHeight = _this.screenHeight;
+                var windowWidth = _this.windowWidth;
+                var windowHeight = _this.windowHeight;
 
-                _this.device.orientation.portrait = false;
-                _this.device.orientation.landscape = false;
+                // If touch device; height = width
+                if(_this.device.touch) {
+                    if(window.screen.height < window.screen.width) {
+                        deviceWidth = _this.screenHeight;
+                        deviceHeight = _this.screenWidth;
+                        windowWidth = _this.windowHeight;
+                        windowHeight = _this.windowWidth;
+                    }
+                }
 
                 if(_this.windowWidth > _this.windowHeight) {
                     _this.device.orientation.landscape = true;
@@ -120,10 +137,8 @@
                     _this.device.orientation.portrait = true;
                 }
 
-                _this.device.touch = _hasTouch();
-
-                _this.device.phone = (_this.browser.mobile || _this.device.touch) && _this.screenWidth < 680;
-                _this.device.tablet = (_this.browser.mobile || _this.device.touch) && (_this.screenWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
+                _this.device.phone = (_this.browser.mobile || _this.device.touch) && deviceWidth < 680;
+                _this.device.tablet = (_this.browser.mobile || _this.device.touch) && (deviceWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
 
                 if(_this.device.tablet) {
                     _this.device.phone = false;
