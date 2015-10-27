@@ -137,8 +137,8 @@
                     _this.device.orientation.portrait = true;
                 }
 
-                _this.device.phone = (_this.browser.mobile || _this.device.touch) && deviceWidth < 680;
-                _this.device.tablet = (_this.browser.mobile || _this.device.touch) && (deviceWidth >= 680 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
+                _this.device.phone = (_this.browser.mobile || _this.device.touch) && deviceWidth < 600;
+                _this.device.tablet = (_this.browser.mobile || _this.device.touch) && (deviceWidth >= 600 || /(nexus 7|tablet|ipad|kindle)/g.test(ua));
 
                 if(_this.device.tablet) {
                     _this.device.phone = false;
