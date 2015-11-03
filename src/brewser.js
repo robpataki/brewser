@@ -110,7 +110,14 @@
                 _this.device.orientation.portrait = false;
                 _this.device.orientation.landscape = false;
 
-                _this.resolution = Number(window.devicePixelRatio.toFixed(3)) || 1;
+                var resolution = 1;
+                if('deviceXDPI' in screen) {
+                    resolution = screen.deviceXDPI / screen.logicalXDPI;
+                } else if('devicePixelRatio' in window) {
+                    resolution = window.devicePixelRatio;
+                }
+                _this.resolution = Number(resolution.toFixed(3));
+                
                 _this.screenWidth = window.screen.width;
                 _this.screenHeight = window.screen.height;
                 _this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
