@@ -457,7 +457,7 @@
                     _detectOS();
                     _detectCapabilities();
                     _detectBrowser();
-                }
+                };
 
                 if (!document.body) {
                     window.addEventListener('load', detectAll);

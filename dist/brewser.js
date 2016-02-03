@@ -10,7 +10,7 @@
         _init: function() {
 
             // Version bumped by Gulp, don't touch
-            this.VERSION = '0.5.1';
+            this.VERSION = '{{VERSION}}';
 
             var _this = this;
 
@@ -452,10 +452,18 @@
             }
 
             (function() {
-                _detectDevice();
-                _detectOS();
-                _detectCapabilities();
-                _detectBrowser();
+                var detectAll = function () {
+                    _detectDevice();
+                    _detectOS();
+                    _detectCapabilities();
+                    _detectBrowser();
+                };
+
+                if (!document.body) {
+                    window.addEventListener('load', detectAll);
+                } else {
+                    detectAll();
+                }
 
                 if(typeof window.addEventListener !== 'undefined') {
                     window.addEventListener('resize', _detectDevice);
