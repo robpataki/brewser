@@ -10,7 +10,7 @@
         _init: function() {
 
             // Version bumped by Gulp, don't touch
-            this.VERSION = '0.5.1';
+            this.VERSION = '0.6.0';
 
             var _this = this;
 
@@ -451,18 +451,41 @@
                 _detectVideo();
             }
 
-            (function() {
+            function _init() {
+                console.log('BREWSER - _init()');
+
+                _detectCapabilities();
                 _detectDevice();
                 _detectOS();
-                _detectCapabilities();
                 _detectBrowser();
 
-                if(typeof window.addEventListener !== 'undefined') {
+                if(window.addEventListener) {
                     window.addEventListener('resize', _detectDevice);
-                } else if(typeof window.attachEvent !== 'undefined') {
+                } else if(window.attachEvent) {
                     window.attachEvent('onresize', _detectDevice);
                 }
-            })(this);
+            }
+
+            function _handleDOMReady() {
+            	console.log('BREWSER - _handleDOMReady()');
+            	if(document.removeEventListener) {
+            		console.log('BREWSER - _handleDOMReady() - REMOVE');
+            		document.removeEventListener('_handleDOMReady', _handleDOMReady);
+            		_init();
+            	} else if(document.detachEvent) {
+            		if (document.readyState === 'complete') {
+            			console.log('BREWSER - _handleDOMReady() - DETACH');
+            			document.detachEvent('onreadystatechange', _handleDOMReady);
+            			_init();
+            		}
+            	}
+            }
+
+        	if(document.addEventListener) {
+                document.addEventListener('DOMContentLoaded', _handleDOMReady);
+            } else if (document.attachEvent) {
+                document.attachEvent('onreadystatechange', _handleDOMReady);
+            }
         }
     };
 
