@@ -2,6 +2,8 @@
 
     'use strict';
 
+    alert('BREWSER runs');
+
     if(window.BREWSER) {
         return;
     }
@@ -105,6 +107,7 @@
 
 
             function _detectDevice() {
+                alert('_detectDevice()');
                 _this.device.touch = _hasTouch();
 
                 _this.device.orientation.portrait = false;
@@ -120,8 +123,8 @@
                 
                 _this.screenWidth = window.screen.width;
                 _this.screenHeight = window.screen.height;
-                _this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
-                _this.windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                _this.windowWidth = window.innerWidth || document.body.clientWidth;
+                _this.windowHeight = window.innerHeight || document.body.clientHeight;
                 
                 var deviceWidth = _this.screenWidth;
                 var deviceHeight = _this.screenHeight;
@@ -451,13 +454,12 @@
                 _detectVideo();
             }
 
-            function _init() {
-                console.log('BREWSER - _init()');
-
-                _detectCapabilities();
+            function _launch() {
+                alert('launched!');
                 _detectDevice();
                 _detectOS();
                 _detectBrowser();
+                _detectCapabilities();
 
                 if(window.addEventListener) {
                     window.addEventListener('resize', _detectDevice);
@@ -467,24 +469,27 @@
             }
 
             function _handleDOMReady() {
-            	console.log('BREWSER - _handleDOMReady()');
             	if(document.removeEventListener) {
-            		console.log('BREWSER - _handleDOMReady() - REMOVE');
+                    _launch();
             		document.removeEventListener('_handleDOMReady', _handleDOMReady);
-            		_init();
             	} else if(document.detachEvent) {
             		if (document.readyState === 'complete') {
-            			console.log('BREWSER - _handleDOMReady() - DETACH');
+                        _launch();
             			document.detachEvent('onreadystatechange', _handleDOMReady);
-            			_init();
             		}
             	}
             }
 
-        	if(document.addEventListener) {
-                document.addEventListener('DOMContentLoaded', _handleDOMReady);
-            } else if (document.attachEvent) {
-                document.attachEvent('onreadystatechange', _handleDOMReady);
+            if(!document.body) {
+                alert('launching with EVENT HANDLER');
+                if(document.addEventListener) {
+                    document.addEventListener('DOMContentLoaded', _handleDOMReady);
+                } else if (document.attachEvent) {
+                    document.attachEvent('onreadystatechange', _handleDOMReady);
+                }
+            } else {
+                alert('launching without EVENT HANDLER');
+                _launch();
             }
         }
     };
