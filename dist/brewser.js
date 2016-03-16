@@ -2,7 +2,7 @@
 
     'use strict';
 
-    if(window.BREWSER) {
+    if(global.BREWSER || typeof window === 'undefined') {
         return;
     }
 
