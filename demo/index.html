@@ -267,8 +267,10 @@
             }
         }
     </style>
-
     <script type="text/javascript" src="../dist/brewser.min.js"></script>
+    <script type="text/javascript">
+        alert('script in the head just run after brewser was loaded');
+    </script>
   </head>
   <body>    
 
@@ -451,11 +453,11 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td>audioFormats.mp3</td>
+                            <td>audioFormats.ogg</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td>audioFormats.mp4</td>
+                            <td>audioFormats.mp3</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -463,7 +465,7 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td>audioFormats.ogg</td>
+                            <td>audioFormats.aac</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -541,14 +543,10 @@
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript">
-        $(window).load(function(){
-            alert('document.load()');
-        });
         $(document).ready(function(){
-            alert('window.ready()');
             var _this = this;
 
             _this.els = {};
@@ -589,10 +587,10 @@
             _this.els.$capabilities.find('td:eq(11)').html(BREWSER.has.getUserMedia.toString());
             _this.els.$capabilities.find('td:eq(13)').html(BREWSER.has.audio.toString());
             _this.els.$capabilities.find('td:eq(15)').html(BREWSER.has.audioApi.toString());
-            _this.els.$capabilities.find('td:eq(17)').html(BREWSER.has.audioFormats.mp3.toString());
-            _this.els.$capabilities.find('td:eq(19)').html(BREWSER.has.audioFormats.mp4.toString());
+            _this.els.$capabilities.find('td:eq(17)').html(BREWSER.has.audioFormats.ogg.toString());
+            _this.els.$capabilities.find('td:eq(19)').html(BREWSER.has.audioFormats.mp3.toString());
             _this.els.$capabilities.find('td:eq(21)').html(BREWSER.has.audioFormats.wav.toString());
-            _this.els.$capabilities.find('td:eq(23)').html(BREWSER.has.audioFormats.ogg.toString());
+            _this.els.$capabilities.find('td:eq(23)').html(BREWSER.has.audioFormats.aac.toString());
             _this.els.$capabilities.find('td:eq(25)').html(BREWSER.has.webAudio.toString());
             _this.els.$capabilities.find('td:eq(27)').html(BREWSER.has.video.toString());
             _this.els.$capabilities.find('td:eq(29)').html(BREWSER.has.videoFormats.mp4.toString());
@@ -601,7 +599,7 @@
 
             _this.els.$basics = $('#basics');
 
-            $(window).on('resize orientationchange', function(event) {
+            $(window).on('resize', function(event) {
                 _this.els.$basics.find('td:eq(1)').html(BREWSER.screenWidth + 'px');
                 _this.els.$basics.find('td:eq(3)').html(BREWSER.screenHeight + 'px');
                 _this.els.$basics.find('td:eq(5)').html(BREWSER.windowWidth + 'px');
@@ -619,6 +617,12 @@
                     $img.attr('src', $img.attr('data-src-2x'));
                 });
             }
+
+            BREWSER.onReady(function(){
+                console.log('BREWSER IS DONE!');
+            });
+
+            alert('ready done!');
         });
     </script>
   </body>

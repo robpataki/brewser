@@ -590,11 +590,14 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/rob/Work/handcrafteddigital/brewser",
-		"/Users/rob/Work/handcrafteddigital/brewser/demo"
+		"/Users/rob/Work/handcrafted/brewser",
+		"/Users/rob/Work/handcrafted/brewser/demo",
+		"/Users/rob/Work/handcrafted/brewser/src"
 	],
 	"file_history":
 	[
+		"/Users/rob/Work/handcrafted/brewser/demo/index.html",
+		"/Users/rob/Work/handcrafted/brewser/src/brewser.js",
 		"/Users/rob/Work/handcrafteddigital/brewser/package.json",
 		"/Users/rob/Work/handcrafteddigital/brewser/README.md",
 		"/Users/rob/Work/handcrafteddigital/brewser/bower.json",
@@ -720,9 +723,7 @@
 		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/templates/intro.hbs",
 		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/vendor/symfony/routing/Symfony/Component/Routing/Loader/AnnotationClassLoader.php",
 		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/styles/_modal-transitions.scss",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/styles/_modal-bio.scss",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/styles/_modal-guide.scss",
-		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/vendor/barryvdh/laravel-debugbar/src/Resources/vendor/font-awesome/style.css"
+		"/Users/rob/Work/reform-london/comfort/03_jens/comfort-sloc/docroot/app/assets/styles/_modal-bio.scss"
 	],
 	"find":
 	{
@@ -868,6 +869,44 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"document.body",
+			"_detectDevice",
+			"screen",
+			"document.body",
+			"console.",
+			"alert",
+			"document.body",
+			"getComputedS",
+			"alert",
+			"_detectCanvas",
+			"document.body",
+			"window.",
+			"alert",
+			".has.audio",
+			"canvas2d",
+			".has.canvas",
+			"_detectCapabilities",
+			"_detectCanvas",
+			"window.",
+			"window",
+			"screen.",
+			"screen",
+			"BREWSER",
+			"BREWSER.",
+			"_detectDevice",
+			"onreadystatechange",
+			"'1'",
+			"_detectDevice",
+			"5",
+			"_handleDOMReady",
+			"_init",
+			"_launch",
+			"alert",
+			"brewser.",
+			"alert",
+			"alert(",
+			"global",
+			"alert",
 			"@",
 			"orientation",
 			"_detectDevice",
@@ -957,45 +996,7 @@
 			"margin-right",
 			"text-align",
 			"margin-right:",
-			"social-buttons-bio",
-			"bio",
-			"body",
-			"applyCSS",
-			"hover",
-			"wallpaperButton",
-			"wallpaperMenu",
-			"_this.els.$wallpaperButton",
-			".sizes",
-			"$social",
-			"_this.els.$social",
-			"padding: 4px 10px;",
-			".cta",
-			"display: none",
-			"resize",
-			"_this.pixi = ",
-			"pixi.res",
-			"firstFr",
-			"console.warn",
-			"_yoyoArrow",
-			"arrowTween",
-			"yoyoArrow",
-			"_this.els.$buttonLabel",
-			"ctaLabel",
-			"_this.els.$ctaLabel",
-			"dashed",
-			"exit-links",
-			"is-touch",
-			"__id",
-			"console.log",
-			"maxVideoWidth",
-			"_this.app.screenData.windowH",
-			"_this.app.screenData.windowW",
-			"socialButtons",
-			"_this.els.$socialShare",
-			"_this.els.$socialShare = ",
-			"socialButtons",
-			"socialB",
-			"_this.els.$closeButton"
+			"social-buttons-bio"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1090,6 +1091,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"index.html",
+				"demo/index.html"
+			],
 			[
 				"readme",
 				"README.md"
@@ -1597,10 +1602,6 @@
 			[
 				"logo-sv",
 				"docroot/app/views/partials/logo-svg.blade.php"
-			],
-			[
-				"sapp.js",
-				"docroot/app/assets/scripts/app.js"
 			]
 		],
 		"width": 0.0

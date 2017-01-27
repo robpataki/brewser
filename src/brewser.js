@@ -1,16 +1,19 @@
-(function(global) {
+(function(win) {
 
     'use strict';
 
-    alert('BREWSER runs');
-
-    if(window.BREWSER) {
+    if(win.BREWSER) {
         return;
     }
 
-    var _brewser = {
-        _init: function() {
+    var body = null;
 
+    var _brewser = {
+        onReady: function(callback) {
+            callback.call();
+        },
+
+        _init: function() {
             // Version bumped by Gulp, don't touch
             this.VERSION = '{{VERSION}}';
 
@@ -21,7 +24,7 @@
             }
             _this._exists = true;
 
-            _this.UA = window.navigator.userAgent;
+            _this.UA = win.navigator.userAgent;
             _this.ua = _this.UA.toLowerCase();
             var ua = _this.ua;
 
@@ -80,7 +83,7 @@
 
             _this.has = {
                 rAF: _this.NOT_AVAILABLE,
-                canvas2d: _this.NOT_AVAILABLE,
+                canvas: _this.NOT_AVAILABLE,
                 webGL: _this.NOT_AVAILABLE,
                 cssTransform: _this.NOT_AVAILABLE,
                 mediaQueries: _this.NOT_AVAILABLE,
@@ -107,7 +110,6 @@
 
 
             function _detectDevice() {
-                alert('_detectDevice()');
                 _this.device.touch = _hasTouch();
 
                 _this.device.orientation.portrait = false;
@@ -117,14 +119,14 @@
                 if('deviceXDPI' in screen) {
                     resolution = screen.deviceXDPI / screen.logicalXDPI;
                 } else if('devicePixelRatio' in window) {
-                    resolution = window.devicePixelRatio;
+                    resolution = win.devicePixelRatio;
                 }
                 _this.resolution = Number(resolution.toFixed(3));
                 
-                _this.screenWidth = window.screen.width;
-                _this.screenHeight = window.screen.height;
-                _this.windowWidth = window.innerWidth || document.body.clientWidth;
-                _this.windowHeight = window.innerHeight || document.body.clientHeight;
+                _this.screenWidth = win.screen.width;
+                _this.screenHeight = win.screen.height;
+                _this.windowWidth = win.innerWidth || document.body.clientWidth;
+                _this.windowHeight = win.innerHeight || document.body.clientHeight;
                 
                 var deviceWidth = _this.screenWidth;
                 var deviceHeight = _this.screenHeight;
@@ -133,7 +135,7 @@
 
                 // If touch device; height = width
                 if(_this.device.touch) {
-                    if(window.screen.height < window.screen.width) {
+                    if(win.screen.height < win.screen.width) {
                         deviceWidth = _this.screenHeight;
                         deviceHeight = _this.screenWidth;
                         windowWidth = _this.windowHeight;
@@ -250,7 +252,7 @@
 
                         // Checking for 11+ version of IE
                         if (typeof chunk === 'undefined') {
-                            if (!window.ActiveXObject && 'ActiveXObject' in window) {
+                            if (!win.ActiveXObject && 'ActiveXObject' in window) {
                                 chunk = ua.substring(ua.indexOf('rv:') + 3, ua.indexOf(')'));
                             }
                         }
@@ -342,37 +344,37 @@
 
             function _hasTouch() {
                 return  !!('ontouchstart' in window) ||
-                        (!!('onmsgesturechange' in window) && !!window.navigator.maxTouchPoints);
+                        (!!('onmsgesturechange' in window) && !!win.navigator.maxTouchPoints);
             }
 
             function _hasRAF() {
-                var result =    window.requestAnimationFrame       ||
-                                window.webkitRequestAnimationFrame ||
-                                window.mozRequestAnimationFrame;
+                var result =    win.requestAnimationFrame       ||
+                                win.webkitRequestAnimationFrame ||
+                                win.mozRequestAnimationFrame;
                 return !!result;
             }
 
             function _hasCSSTransform() {
                 return !!(('getComputedStyle' in window) &&
-                            (window.getComputedStyle(document.body).getPropertyValue('-webkit-transform') ||
-                            window.getComputedStyle(document.body).getPropertyValue('-o-transform') ||
-                            window.getComputedStyle(document.body).getPropertyValue('-moz-transform') ||
-                            window.getComputedStyle(document.body).getPropertyValue('-ms-transform') ||
-                            window.getComputedStyle(document.body).getPropertyValue('transform')
+                            (win.getComputedStyle(document.body).getPropertyValue('-webkit-transform') ||
+                            win.getComputedStyle(document.body).getPropertyValue('-o-transform') ||
+                            win.getComputedStyle(document.body).getPropertyValue('-moz-transform') ||
+                            win.getComputedStyle(document.body).getPropertyValue('-ms-transform') ||
+                            win.getComputedStyle(document.body).getPropertyValue('transform')
                         ));
             }
 
 
 
             function _hasMediaQueries() {
-                return !!window.matchMedia;
+                return !!win.matchMedia;
             }
 
             function _hasGetUserMedia() {
-                var result =    window.navigator.getUserMedia ||
-                                window.navigator.webkitGetUserMedia ||
-                                window.navigator.mozGetUserMedia ||
-                                window.navigator.msGetUserMedia;
+                var result =    win.navigator.getUserMedia ||
+                                win.navigator.webkitGetUserMedia ||
+                                win.navigator.mozGetUserMedia ||
+                                win.navigator.msGetUserMedia;
                 return !!result;
             }
 
@@ -385,7 +387,7 @@
                 _this.has.webGL = !!canvasEl.getContext && !!canvasEl.getContext('webgl');
 
                 canvasEl = _createEl('canvas');
-                _this.has.canvas =  !!canvasEl.getContext && typeof canvasEl.getContext('2d').fillText === 'function';
+                _this.has.canvas = !!canvasEl.getContext && typeof canvasEl.getContext('2d').fillText === 'function';
             }
 
             function _detectVideo() {
@@ -408,8 +410,8 @@
                 // objects throws an error in some browsers
                 var result;
                 if(typeof _this.cachedWebAudioResult === 'undefined') {
-                    window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
-                    if (typeof window.AudioContext !== 'undefined') {
+                    win.AudioContext = win.AudioContext || win.webkitAudioContext || win.mozAudioContext;
+                    if (typeof win.AudioContext !== 'undefined') {
                         var context = new AudioContext();
                         result = !!context && typeof context.createGain === 'function';
                     } else {
@@ -455,45 +457,42 @@
             }
 
             function _launch() {
-                alert('launched!');
                 _detectDevice();
                 _detectOS();
                 _detectBrowser();
                 _detectCapabilities();
 
-                if(window.addEventListener) {
-                    window.addEventListener('resize', _detectDevice);
-                } else if(window.attachEvent) {
-                    window.attachEvent('onresize', _detectDevice);
+                if(win.addEventListener) {
+                    win.addEventListener('resize', _detectDevice);
+                } else if(win.attachEvent) {
+                    win.attachEvent('onresize', _detectDevice);
                 }
+            }
+
+            function _postLaunch() {
+                console.log('BREWSER - _postLaunch()');
             }
 
             function _handleDOMReady() {
             	if(document.removeEventListener) {
-                    _launch();
             		document.removeEventListener('_handleDOMReady', _handleDOMReady);
+                    _postLaunch();
             	} else if(document.detachEvent) {
             		if (document.readyState === 'complete') {
-                        _launch();
             			document.detachEvent('onreadystatechange', _handleDOMReady);
+                        _postLaunch();
             		}
             	}
             }
 
-            if(!document.body) {
-                alert('launching with EVENT HANDLER');
-                if(document.addEventListener) {
-                    document.addEventListener('DOMContentLoaded', _handleDOMReady);
-                } else if (document.attachEvent) {
-                    document.attachEvent('onreadystatechange', _handleDOMReady);
-                }
-            } else {
-                alert('launching without EVENT HANDLER');
-                _launch();
+            if(document.addEventListener) {
+                document.addEventListener('DOMContentLoaded', _handleDOMReady);
+            } else if (document.attachEvent) {
+                document.attachEvent('onreadystatechange', _handleDOMReady);
             }
         }
     };
 
     _brewser._init();
-    global.BREWSER = global.br = _brewser;
-}(this));
+    win.BREWSER = win.br = _brewser;
+})(window);
