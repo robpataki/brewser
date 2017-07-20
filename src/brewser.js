@@ -460,7 +460,11 @@
                 };
 
                 if (!document.body) {
-                    window.addEventListener('load', detectAll);
+                    if(typeof window.addEventListener !== 'undefined') {
+                        window.addEventListener('load', detectAll);
+                    } else if(typeof window.attachEvent !== 'undefined') {
+                        window.attachEvent('load', detectAll);
+                    }
                 } else {
                     detectAll();
                 }
