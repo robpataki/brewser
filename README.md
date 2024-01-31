@@ -1,5 +1,5 @@
 <a href="https://github.com/robpataki/brewser" >
-    <img width="120" src="https://raw.githubusercontent.com/robpataki/brewser/master/brewser-logo@2x.png" alt="" aria-hidden="true" />
+    <img width="120" src="demo/images/brewser-logo@2x.png" alt="" aria-hidden="true" />
 </a>
 
 Brewser.js is an open source JavaScript device and browser detection library. The main goal of this project is to offer Front-end developers a straightforward way to detect different (mobile/tablet/desktop) device types in JavaScript, and to help them to detect their users' browser capabilities.
@@ -29,8 +29,6 @@ For the full list of goodies brewser.js has to offer, please check out [this dem
 ### Live demo
 
 [https://robpataki.github.io/brewser/](https://robpataki.github.io/brewser/)
-or
-[https://bit.ly/brewserjs](https://bit.ly/brewserjs)
 
 ### Offline demo
 
@@ -61,7 +59,7 @@ You're done, let's see that pull request!
 GPL - 2017
 
 <a href="https://github.com/robpataki" >
-  <img width="144" src="images/rob-p-logo.svg" alt="" aria-hidden="true"/>
+  <img width="144" src="demo/images/rob-p-logo.svg" alt="" aria-hidden="true"/>
 </a>
 
-Copyright &copy; 2017 <a href="https://github.com/robpataki/brewser" >brewser.js</a> was created and has been maintained by [Rob Pataki](https://github.com/robpataki) since 2015. Brewser logo design by [Gabor Tatrai](http://gabor.tatrai.com/).
+Copyright &copy; 2024 <a href="https://github.com/robpataki/brewser" >brewser.js</a> was created and has been maintained by [Rob Pataki](https://github.com/robpataki) since 2015. Brewser logo design by [Gabor Tatrai](http://gabor.tatrai.com/).
