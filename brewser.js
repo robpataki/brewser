@@ -118,8 +118,8 @@
                 }
                 _this.resolution = Number(resolution.toFixed(3));
                 
-                _this.screenWidth = window.screen.width;
-                _this.screenHeight = window.screen.height;
+                _this.screenWidth = screen.width;
+                _this.screenHeight = screen.height;
                 _this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
                 _this.windowHeight = window.innerHeight || document.documentElement.clientHeight;
                 
