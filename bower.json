@@ -1,9 +1,9 @@
 {
     "name": "brewser",
     "version": "0.5.1",
-    "homepage": "https://github.com/handcraftedLDN/brewser",
+    "homepage": "https://github.com/robpataki/brewser",
     "authors": [
-        "Robert Pataki <rob@handcrafteddigital.london>"
+        "Robert Pataki <robert@robertpataki.com>"
     ],
     "description": "Device and browser detection",
     "main": "dist/brewser.js",
