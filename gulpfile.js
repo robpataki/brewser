@@ -56,7 +56,7 @@ gulp.task("version:build:min", ["version:build"], function (cb) {
     .pipe(gulp.dest("dist"));
 });
 
-// Update the version number in the bopackagewer.json file using
+// Update the version number in the bower.json file using
 // 'version.json'
 gulp.task("version:npm", ["version:build:min"], function (cb) {
   var contents = npmConfig;
@@ -100,4 +100,5 @@ gulp.task("deploy:dist", function () {
 // Define custom tasks
 gulp.task("default", ["watch"]);
 gulp.task("release", ["version:bower"]);
-gulp.task("deploy", ["version:build:min", "copy:demo", "deploy:dist"]);
+gulp.task("deploy:prepare", ["version:build:min", "copy:demo"]);
+gulp.task("deploy", ["deploy:prepare", "deploy:dist"]);
