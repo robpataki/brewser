@@ -598,8 +598,7 @@
               sniffs the User Agent string to detect certain device types and
               operating systems. That is to give you as much useful information
               as possible to distinguish between key device and OS types. As we
-              know this can be tricky and inaccurate in some cases, please
-              <span class="strong">#handlewithcare</span>.
+              know this can be tricky and inaccurate in some cases.
             </p>
           </div>
         </div>
@@ -629,153 +628,103 @@
       </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="./brewser.min.js"></script>
     <script type="text/javascript">
-      $(document).ready(function () {
+      document.addEventListener("DOMContentLoaded", (event) => {
         var _this = this;
 
         _this.els = {};
 
-        _this.els.$userAgent = $("#userAgent");
-        _this.els.$userAgent.find(".message").html(BREWSER.ua);
+        _this.els.$userAgent = document.querySelector("#userAgent");
+        document.querySelector("#userAgent .message").innerHTML = BREWSER.ua;
 
-        _this.els.$version = $("#version");
-        _this.els.$version.html("v" + BREWSER.VERSION);
+        _this.els.$version = document.querySelector("#version");
+        _this.els.$version.innerHTML = "v" + BREWSER.VERSION;
 
-        _this.els.$browser = $("#browser");
-        _this.els.$browser
-          .find("td:eq(1)")
-          .html(BREWSER.browser.type.toString());
-        _this.els.$browser
-          .find("td:eq(3)")
-          .html(BREWSER.browser.version.toString());
-        _this.els.$browser
-          .find("td:eq(5)")
-          .html(BREWSER.browser.fullVersion.toString());
-        _this.els.$browser
-          .find("td:eq(7)")
-          .html(BREWSER.browser.string.toString());
-        _this.els.$browser
-          .find("td:eq(9)")
-          .html(BREWSER.browser.chrome.toString());
-        _this.els.$browser
-          .find("td:eq(11)")
-          .html(BREWSER.browser.safari.toString());
-        _this.els.$browser
-          .find("td:eq(13)")
-          .html(BREWSER.browser.opera.toString());
-        _this.els.$browser
-          .find("td:eq(15)")
-          .html(BREWSER.browser.firefox.toString());
-        _this.els.$browser
-          .find("td:eq(17)")
-          .html(BREWSER.browser.ie.toString());
-        _this.els.$browser
-          .find("td:eq(19)")
-          .html(BREWSER.browser.edge.toString());
-        _this.els.$browser
-          .find("td:eq(21)")
-          .html(BREWSER.browser.kindle.toString());
-        _this.els.$browser
-          .find("td:eq(23)")
-          .html(BREWSER.browser.other.toString());
-        _this.els.$browser
-          .find("td:eq(25)")
-          .html(BREWSER.browser.mobile.toString());
+        _this.browserTdEls = document.querySelectorAll("#browser td");
+        _this.browserTdEls[1].innerHTML = BREWSER.browser.type.toString();
+        _this.browserTdEls[3].innerHTML = BREWSER.browser.version.toString();
+        _this.browserTdEls[5].innerHTML =
+          BREWSER.browser.fullVersion.toString();
+        _this.browserTdEls[7].innerHTML = BREWSER.browser.string.toString();
+        _this.browserTdEls[9].innerHTML = BREWSER.browser.chrome.toString();
+        _this.browserTdEls[11].innerHTML = BREWSER.browser.safari.toString();
+        _this.browserTdEls[13].innerHTML = BREWSER.browser.opera.toString();
+        _this.browserTdEls[15].innerHTML = BREWSER.browser.firefox.toString();
+        _this.browserTdEls[17].innerHTML = BREWSER.browser.ie.toString();
+        _this.browserTdEls[19].innerHTML = BREWSER.browser.edge.toString();
+        _this.browserTdEls[21].innerHTML = BREWSER.browser.kindle.toString();
+        _this.browserTdEls[23].innerHTML = BREWSER.browser.other.toString();
+        _this.browserTdEls[25].innerHTML = BREWSER.browser.mobile.toString();
 
-        _this.els.$device = $("#device");
-        _this.els.$device.find("td:eq(1)").html(BREWSER.device.os.toString());
-        _this.els.$device
-          .find("td:eq(3)")
-          .html(BREWSER.device.touch.toString());
-        _this.els.$device
-          .find("td:eq(5)")
-          .html(BREWSER.device.phone.toString());
-        _this.els.$device
-          .find("td:eq(7)")
-          .html(BREWSER.device.tablet.toString());
-        _this.els.$device
-          .find("td:eq(9)")
-          .html(BREWSER.device.desktop.toString());
+        _this.deviceTdEls = document.querySelectorAll("#device td");
+        _this.deviceTdEls[1].innerHTML = BREWSER.device.os.toString();
+        _this.deviceTdEls[3].innerHTML = BREWSER.device.touch.toString();
+        _this.deviceTdEls[5].innerHTML = BREWSER.device.phone.toString();
+        _this.deviceTdEls[7].innerHTML = BREWSER.device.tablet.toString();
+        _this.deviceTdEls[9].innerHTML = BREWSER.device.desktop.toString();
 
-        _this.els.$capabilities = $("#capabilities");
-        _this.els.$capabilities
-          .find("td:eq(1)")
-          .html(BREWSER.has.canvas.toString());
-        _this.els.$capabilities
-          .find("td:eq(3)")
-          .html(BREWSER.has.webGL.toString());
-        _this.els.$capabilities
-          .find("td:eq(5)")
-          .html(BREWSER.has.rAF.toString());
-        _this.els.$capabilities
-          .find("td:eq(7)")
-          .html(BREWSER.has.cssTransform.toString());
-        _this.els.$capabilities
-          .find("td:eq(9)")
-          .html(BREWSER.has.mediaQueries.toString());
-        _this.els.$capabilities
-          .find("td:eq(11)")
-          .html(BREWSER.has.getUserMedia.toString());
-        _this.els.$capabilities
-          .find("td:eq(13)")
-          .html(BREWSER.has.audio.toString());
-        _this.els.$capabilities
-          .find("td:eq(15)")
-          .html(BREWSER.has.audioApi.toString());
-        _this.els.$capabilities
-          .find("td:eq(17)")
-          .html(BREWSER.has.audioFormats.mp3.toString());
-        _this.els.$capabilities
-          .find("td:eq(19)")
-          .html(BREWSER.has.audioFormats.mp4.toString());
-        _this.els.$capabilities
-          .find("td:eq(21)")
-          .html(BREWSER.has.audioFormats.wav.toString());
-        _this.els.$capabilities
-          .find("td:eq(23)")
-          .html(BREWSER.has.audioFormats.ogg.toString());
-        _this.els.$capabilities
-          .find("td:eq(25)")
-          .html(BREWSER.has.webAudio.toString());
-        _this.els.$capabilities
-          .find("td:eq(27)")
-          .html(BREWSER.has.video.toString());
-        _this.els.$capabilities
-          .find("td:eq(29)")
-          .html(BREWSER.has.videoFormats.mp4.toString());
-        _this.els.$capabilities
-          .find("td:eq(31)")
-          .html(BREWSER.has.videoFormats.webm.toString());
-        _this.els.$capabilities
-          .find("td:eq(33)")
-          .html(BREWSER.has.videoFormats.ogg.toString());
+        // TODO: Add new capabilities
 
-        _this.els.$basics = $("#basics");
+        _this.capabilityTdEls = document.querySelectorAll("#capabilities td");
+        _this.capabilityTdEls[1].innerHTML = BREWSER.has.canvas.toString();
+        _this.capabilityTdEls[3].innerHTML = BREWSER.has.webGL.toString();
+        _this.capabilityTdEls[5].innerHTML = BREWSER.has.rAF.toString();
+        _this.capabilityTdEls[7].innerHTML =
+          BREWSER.has.cssTransform.toString();
+        _this.capabilityTdEls[9].innerHTML =
+          BREWSER.has.mediaQueries.toString();
+        BREWSER.has.cssTransform.toString();
+        _this.capabilityTdEls[11].innerHTML =
+          BREWSER.has.getUserMedia.toString();
+        BREWSER.has.cssTransform.toString();
+        _this.capabilityTdEls[13].innerHTML = BREWSER.has.audio.toString();
+        BREWSER.has.cssTransform.toString();
+        _this.capabilityTdEls[15].innerHTML = BREWSER.has.audioApi.toString();
+        _this.capabilityTdEls[17].innerHTML =
+          BREWSER.has.audioFormats.mp3.toString();
+        _this.capabilityTdEls[19].innerHTML =
+          BREWSER.has.audioFormats.mp4.toString();
+        _this.capabilityTdEls[21].innerHTML =
+          BREWSER.has.audioFormats.wav.toString();
+        _this.capabilityTdEls[23].innerHTML =
+          BREWSER.has.audioFormats.ogg.toString();
+        _this.capabilityTdEls[25].innerHTML = BREWSER.has.webAudio.toString();
+        _this.capabilityTdEls[27].innerHTML = BREWSER.has.video.toString();
+        _this.capabilityTdEls[29].innerHTML =
+          BREWSER.has.videoFormats.mp4.toString();
+        _this.capabilityTdEls[31].innerHTML =
+          BREWSER.has.videoFormats.webm.toString();
+        _this.capabilityTdEls[33].innerHTML =
+          BREWSER.has.videoFormats.ogg.toString();
 
-        $(window).on("resize orientationchange", function (event) {
-          _this.els.$basics.find("td:eq(1)").html(BREWSER.screenWidth + "px");
-          _this.els.$basics.find("td:eq(3)").html(BREWSER.screenHeight + "px");
-          _this.els.$basics.find("td:eq(5)").html(BREWSER.windowWidth + "px");
-          _this.els.$basics.find("td:eq(7)").html(BREWSER.windowHeight + "px");
-          _this.els.$basics.find("td:eq(9)").html(BREWSER.resolution);
+        _this.basicTdEls = document.querySelectorAll("#basics td");
+        const handleResizeEvent = () => {
+          _this.basicTdEls[1].innerHTML = BREWSER.screenWidth + "px";
+          _this.basicTdEls[3].innerHTML = BREWSER.screenHeight + "px";
+          _this.basicTdEls[5].innerHTML = BREWSER.windowWidth + "px";
+          _this.basicTdEls[7].innerHTML = BREWSER.windowHeight + "px";
+          _this.basicTdEls[9].innerHTML = BREWSER.resolution;
 
-          _this.els.$device
-            .find("td:eq(11)")
-            .html(BREWSER.device.orientation.portrait.toString());
-          _this.els.$device
-            .find("td:eq(13)")
-            .html(BREWSER.device.orientation.landscape.toString());
-        });
-        $(window).resize();
+          _this.deviceTdEls[11].innerHTML =
+            BREWSER.device.orientation.portrait.toString();
+          _this.deviceTdEls[13].innerHTML =
+            BREWSER.device.orientation.landscape.toString();
+        };
 
+        handleResizeEvent();
+
+        window.addEventListener("resize", handleResizeEvent);
+        window.addEventListener("orientationchange", handleResizeEvent);
+
+        /*
+        // TODO: Use responsive image sources
         if (BREWSER.resolution > 1) {
           $(".logo img").each(function (index, img) {
             var $img = $(img);
             $img.attr("src", $img.attr("data-src-2x"));
           });
-        }
+        } */
       });
     </script>
   </body>
