@@ -1,5 +1,5 @@
 <a href="https://github.com/robpataki/brewser" >
-    <img width="120" src="demo/images/brewser-logo@2x.png" alt="" aria-hidden="true" />
+    <img width="120" src="https://github.com/robpataki/brewser/blob/main/demo/images/brewser-logo@2x.png" alt="" aria-hidden="true" />
 </a>
 
 Brewser.js is an open source JavaScript device and browser detection library. The main goal of this project is to offer Front-end developers a straightforward way to detect different (mobile/tablet/desktop) device types in JavaScript, and to help them to detect their users' browser capabilities.
@@ -49,7 +49,7 @@ Once you're happy with your changes, run
 Then commit your changes, push them up and tag the new release:
 
     $ git tag -a v0.0.2 -m "Version 0.0.2 release"
-    $ git push origin master --tags
+    $ git push origin main --tags
     $ npm publish
 
 You're done, let's see that pull request!
@@ -59,7 +59,7 @@ You're done, let's see that pull request!
 GPL - 2017
 
 <a href="https://github.com/robpataki" >
-  <img width="144" src="demo/images/rob-p-logo.svg" alt="" aria-hidden="true"/>
+  <img width="144" src="https://github.com/robpataki/brewser/blob/main/demo/images/rob-p-logo.svg" alt="" aria-hidden="true"/>
 </a>
 
 ## To do
