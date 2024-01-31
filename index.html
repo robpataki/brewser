@@ -417,6 +417,10 @@
                 <td></td>
               </tr>
               <tr>
+                <td>edge</td>
+                <td></td>
+              </tr>
+              <tr>
                 <td>kindle</td>
                 <td></td>
               </tr>
@@ -668,12 +672,15 @@
           .html(BREWSER.browser.ie.toString());
         _this.els.$browser
           .find("td:eq(19)")
-          .html(BREWSER.browser.kindle.toString());
+          .html(BREWSER.browser.edge.toString());
         _this.els.$browser
           .find("td:eq(21)")
-          .html(BREWSER.browser.other.toString());
+          .html(BREWSER.browser.kindle.toString());
         _this.els.$browser
           .find("td:eq(23)")
+          .html(BREWSER.browser.other.toString());
+        _this.els.$browser
+          .find("td:eq(25)")
           .html(BREWSER.browser.mobile.toString());
 
         _this.els.$device = $("#device");
