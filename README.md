@@ -62,4 +62,16 @@ GPL - 2017
   <img width="144" src="demo/images/rob-p-logo.svg" alt="" aria-hidden="true"/>
 </a>
 
+## To do
+
+### Sort out the Gulp tasks, so deployment is a 1 step process, until then:
+
+Run `gulp deploy` x2, then `gulp deploy:dist`
+
+### Remove Jquery, use native Javascript to manupulate the DOM, it's 2024!
+
+### Publish latest version to NPM
+
+### Check if Bower is still a thing - if so, publish new package
+
 Copyright &copy; 2024 <a href="https://github.com/robpataki/brewser" >brewser.js</a> was created and has been maintained by [Rob Pataki](https://github.com/robpataki) since 2015. Brewser logo design by [Gabor Tatrai](http://gabor.tatrai.com/).
