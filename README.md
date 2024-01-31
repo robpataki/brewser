@@ -1,14 +1,14 @@
-<a href="https://github.com/robertpataki/brewser" target="_blank">
-    <img width="120" src="https://raw.githubusercontent.com/robertpataki/brewser/master/brewser-logo@2x.png" alt="brewser.js logo"/>
+<a href="https://github.com/robpataki/brewser" >
+    <img width="120" src="https://raw.githubusercontent.com/robpataki/brewser/master/brewser-logo@2x.png" alt="" aria-hidden="true" />
 </a>
 
-Brewser.js is an open source JavaScript device and browser detection library. The main goal of this project is to offer Front-end developers a straightforward  way to detect different (mobile/tablet/desktop) device types in JavaScript, and to help them to detect their users' browser capabilities.
+Brewser.js is an open source JavaScript device and browser detection library. The main goal of this project is to offer Front-end developers a straightforward way to detect different (mobile/tablet/desktop) device types in JavaScript, and to help them to detect their users' browser capabilities.
 
-Brewser.js utilises a mixture of JavaScript and CSS property and capability checks, and it uses the UserAgent string to gather information about the  device and the browswer.
+Brewser.js utilises a mixture of JavaScript and CSS property and capability checks, and it uses the UserAgent string to gather information about the device and the browswer.
 
 The library also offers some shortcuts to often used device and browser parameters - such as screen size, window size, screen pixel density and device orientation.
 
-For the full list of goodies brewser.js has to offer, please check out [this demo](https://robertpataki.github.io/brewser/).
+For the full list of goodies brewser.js has to offer, please check out [this demo](https://robpataki.github.io/brewser/).
 
 ## Installation
 
@@ -16,24 +16,25 @@ For the full list of goodies brewser.js has to offer, please check out [this dem
 
 [![npm version](https://badge.fury.io/js/brewser.svg)](https://badge.fury.io/js/brewser)
 
-	$ npm install brewser
+    $ npm install brewser
 
 ### Bower
 
 [![Bower version](https://badge.fury.io/bo/brewser.svg)](https://badge.fury.io/bo/brewser)
 
-	$ bower install brewser
+    $ bower install brewser
 
 ## Demos
 
 ### Live demo
-[https://robertpataki.github.io/brewser/](https://robertpataki.github.io/brewser/)
-or 
+
+[https://robpataki.github.io/brewser/](https://robpataki.github.io/brewser/)
+or
 [https://bit.ly/brewserjs](https://bit.ly/brewserjs)
 
 ### Offline demo
-See `demo` folder in the project's root folder.
 
+See `demo` folder in the project's root folder.
 
 ## Contribution
 
@@ -59,8 +60,8 @@ You're done, let's see that pull request!
 
 GPL - 2017
 
-<a href="https://robertpataki.com" target="_blank">
-  <img width="144" src="https://robertpataki.com/rob-p-logo.svg" alt="Rob P | Freelance interaction designer and developer"/>
+<a href="https://github.com/robpataki" >
+  <img width="144" src="images/rob-p-logo.svg" alt="" aria-hidden="true"/>
 </a>
 
-Copyright &copy; 2017 <a href="https://github.com/robertpataki/brewser" target="_blank">brewser.js</a> was created and has been maintained by [Rob Pataki](https://robertpataki.com) since 2015. Brewser logo design by [Gabor Tatrai](http://gabor.tatrai.com/).
+Copyright &copy; 2017 <a href="https://github.com/robpataki/brewser" >brewser.js</a> was created and has been maintained by [Rob Pataki](https://github.com/robpataki) since 2015. Brewser logo design by [Gabor Tatrai](http://gabor.tatrai.com/).
