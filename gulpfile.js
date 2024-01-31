@@ -93,11 +93,11 @@ gulp.task("copy:demo", [], function (cb) {
 });
 
 // Deploy to GH Pages
-gulp.task("deploy:push", function () {
+gulp.task("deploy:dist", function () {
   return gulp.src("./dist/**/*").pipe(ghPages());
 });
 
 // Define custom tasks
 gulp.task("default", ["watch"]);
 gulp.task("release", ["version:bower"]);
-gulp.task("deploy", ["version:build:min", "copy:demo", "deploy:push"]);
+gulp.task("deploy", ["version:build:min", "copy:demo", "deploy:dist"]);
